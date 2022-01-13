@@ -338,5 +338,7 @@ return [
         'create_car_brand' => 'Add New Car Brand',
         'car_models' => 'Cars Models',
         'create_car_Model' => 'Add New Car Model',
+        'car_cylinders' => 'Cars Cylinders',
+        'create_car_cylinder' => 'Add New Car Cylinder',
     ],
 ];

@@ -337,5 +337,7 @@ return [
         'create_car_brand' => 'أضافة ماركه جديده',
         'car_models' => 'انواع السيارات',
         'create_car_model' => 'أضافة نوع جديده',
+        'car_cylinders' => 'اسطوانات السيارات',
+        'create_car_cylinder' => 'أضافة اسطوانه جديدة',
     ],
 ];
