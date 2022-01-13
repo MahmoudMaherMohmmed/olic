@@ -93,6 +93,7 @@ function get_static_routes()
         Route::Resource('service', 'ServiceController');
         Route::Resource('additional_service', 'AdditionalServiceController');
         Route::Resource('free_service', 'FreeServiceController');
+        Route::Resource('car_brand', 'CarBrandController');
         Route::Resource('reservation', 'ReservationController');
         Route::Resource('center', 'CenterController');
         Route::Resource('term', 'TermController');

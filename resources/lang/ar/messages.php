@@ -329,4 +329,10 @@ return [
         'free_services' => 'الخدمات المجانية',
         'create_free_service' => 'اضافة خدمة مجانية جديد',
     ],
+
+    'cars'=>[
+        'cars' => 'السيارات',
+        'car_brands' => 'ماركات السيارات',
+        'create_car_brand' => 'أضافة ماركه جديده',
+    ],
 ];

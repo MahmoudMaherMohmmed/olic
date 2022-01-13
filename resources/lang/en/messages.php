@@ -330,4 +330,10 @@ return [
         'free_services' => 'Free Services',
         'create_free_service' => 'Add New Free Service',
     ],
+
+    'cars'=>[
+        'cars' => 'Cars',
+        'car_brands' => 'Cars Brands',
+        'create_car_brand' => 'Add New Car Brand',
+    ],
 ];

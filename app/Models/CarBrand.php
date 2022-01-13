@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Translatable;
 
-class Service extends Model
+class CarBrand extends Model
 {
     use HasFactory;
-    use Translatable;  
+    use Translatable; 
 
-    protected $table = 'services';
+    protected $table = 'car_brands';
     protected $fillable = ['title', 'description', 'image'];
-
 }
