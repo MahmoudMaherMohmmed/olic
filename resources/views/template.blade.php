@@ -314,7 +314,7 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     <ul class="nav nav-list">
                         <li id="service">
                             <a href="#" class="dropdown-toggle">
-                                <i class="glyphicon glyphicon-globe"></i>
+                                <i class="fa fa-building"></i>
                                 <span>@lang('messages.services.services')</span>
                                 <b class="arrow fa fa-angle-right"></b>
                             </a>
@@ -330,7 +330,7 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     <ul class="nav nav-list">
                         <li id="car">
                             <a href="#" class="dropdown-toggle">
-                                <i class="glyphicon glyphicon-globe"></i>
+                                <i class="fa fa-car"></i>
                                 <span>@lang('messages.cars.cars')</span>
                                 <b class="arrow fa fa-angle-right"></b>
                             </a>
