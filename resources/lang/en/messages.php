@@ -89,6 +89,9 @@ return [
         'started' => 'started',
         'finished' => 'finished',
         'status' => 'status',
+        'under_review' => 'under review',
+        'approved' => 'Approved',
+        'rejected' => 'Rejected',
     ],
     'country' => [
         'country' => 'Country',
@@ -333,6 +336,8 @@ return [
 
     'cars'=>[
         'cars' => 'Cars',
+        'client_cars' => 'Client Cars',
+        'create_client_car' => 'Add New Car',
         'car_brands' => 'Cars Brands',
         'car_brand' => 'Car Brand',
         'create_car_brand' => 'Add New Car Brand',

@@ -88,6 +88,9 @@ return [
         'started' => 'بدأ',
         'finished' => 'أنتهى',
         'status' => 'الحاله',
+        'under_review' => 'تحت المراجعه',
+        'approved' => 'تم الموافقه عليه',
+        'rejected' => 'تم رفضه',
     ],
     'country' => [
         'country' => 'البلد',
@@ -332,6 +335,8 @@ return [
 
     'cars'=>[
         'cars' => 'السيارات',
+        'client_cars' => 'سيارات العملاء',
+        'create_client_car' => 'أضافة سيارة جديده للعميل',
         'car_brands' => 'ماركات السيارات',
         'car_brand' => 'ماركة السيارة',
         'create_car_brand' => 'أضافة ماركه جديده',
