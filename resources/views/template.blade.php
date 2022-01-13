@@ -337,6 +337,7 @@ if (Config::get('languages')[App::getLocale()] == "English") {
 
                             <ul class="submenu">
                                 <li id="car_brand"><a href="{{url('car_brand')}}">@lang('messages.cars.car_brands')</a></li>
+                                <li id="car_model"><a href="{{url('car_model')}}">@lang('messages.cars.car_models')</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\Translatable;
 
-class CarBrand extends Model
+class CarModel extends Model
 {
     use HasFactory;
+    use Translatable;
     use SoftDeletes;
-    use Translatable; 
 
-    protected $table = 'car_brands';
-    protected $fillable = ['title', 'description', 'image'];
+    protected $table = 'car_models';
+    protected $fillable = ['brand_id', 'title', 'description'];
 
-    public function models()
+    public function brand()
     {
-        return $this->hasMany(CarModel::class);
+        return $this->belongsTo(CarBrand::class);
     }
 }

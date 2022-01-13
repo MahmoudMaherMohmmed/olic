@@ -333,6 +333,9 @@ return [
     'cars'=>[
         'cars' => 'السيارات',
         'car_brands' => 'ماركات السيارات',
+        'car_brand' => 'ماركة السيارة',
         'create_car_brand' => 'أضافة ماركه جديده',
+        'car_models' => 'انواع السيارات',
+        'create_car_model' => 'أضافة نوع جديده',
     ],
 ];

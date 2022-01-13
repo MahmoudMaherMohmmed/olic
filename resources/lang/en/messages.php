@@ -334,6 +334,9 @@ return [
     'cars'=>[
         'cars' => 'Cars',
         'car_brands' => 'Cars Brands',
+        'car_brand' => 'Car Brand',
         'create_car_brand' => 'Add New Car Brand',
+        'car_models' => 'Cars Models',
+        'create_car_Model' => 'Add New Car Model',
     ],
 ];
