@@ -97,7 +97,7 @@
 
 @section('script')
     <script>
-        $('#cars').addClass('active');
+        $('#car').addClass('active');
         $('#car_brand').addClass('active');
     </script>
 @stop

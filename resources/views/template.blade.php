@@ -328,6 +328,20 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </ul>
 
                     <ul class="nav nav-list">
+                        <li id="car">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="glyphicon glyphicon-globe"></i>
+                                <span>@lang('messages.cars.cars')</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li id="car_brand"><a href="{{url('car_brand')}}">@lang('messages.cars.car_brands')</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav nav-list">
                         <li id="bank_transfer">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-bookmark"></i>

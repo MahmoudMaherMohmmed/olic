@@ -29,7 +29,7 @@
 @stop
 @section('script')
     <script>
-        $('#service').addClass('active');
-        $('#main_service').addClass('active');
+        $('#car').addClass('active');
+        $('#car_brand').addClass('active');
     </script>
 @stop
