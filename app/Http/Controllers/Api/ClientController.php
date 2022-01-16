@@ -166,7 +166,7 @@ class ClientController extends Controller
     {
         $request->user()->token()->revoke();
 
-        return response()->json(['message' => trans('api.password')], 200);
+        return response()->json(['message' => trans('api.logout')], 200);
     }
 
        /**
