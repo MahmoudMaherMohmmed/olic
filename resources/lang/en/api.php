@@ -8,4 +8,6 @@ return [
     'logout' => 'Successfully logged out.',
     'send_successfully' => 'Your Message Sent Successfully',
     'miss_configration' => 'No Contact Mail is configured',
+    'notification_deleted_successfully' => 'Notification deleted successfully.',
+    'notification_is_not_found' => 'Notification is not found.',
 ];

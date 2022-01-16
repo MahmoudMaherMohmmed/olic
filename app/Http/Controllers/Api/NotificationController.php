@@ -50,10 +50,10 @@ class NotificationController extends Controller
         $notification = Notification::where('id', $request->notification_id)->where('client_id', $client_id)->first();
         if(isset($notification) && $notification!=null){
             $notification->delete();
-            return response()->json(['message' => 'notification deleted successfully.'], 200);
+            return response()->json(['message' => trans('api.notification_deleted_successfully')], 200);
         }
 
-        return response()->json(['message' => 'notification is not found.'], 403); 
+        return response()->json(['message' => trans('api.notification_is_not_found')], 403); 
     }
     
 }

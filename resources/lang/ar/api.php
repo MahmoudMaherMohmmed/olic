@@ -8,4 +8,6 @@ return [
     'logout' => 'تم تسجيل الخروج بنجاح',
     'send_successfully' => 'تم ارسال رسالتك بنجاج',
     'miss_configration' => 'لم يتم اعداد الميل المرسل من خلاله',
+    'notification_deleted_successfully' => 'تم حذف الاشعار بنجاح',
+    'notification_is_not_found' => 'هذا الاشعار غير موجود',
 ];
