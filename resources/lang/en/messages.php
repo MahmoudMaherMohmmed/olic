@@ -352,5 +352,8 @@ return [
         'oil_brands' => 'Oils Brands',
         'oil_brand' => 'Oil Brand',
         'create_oil_brand' => 'Add New Oil Brand',
+        'oil_types' => 'Oils Types',
+        'create_oil_type' => 'Add New Oil type',
+        'service' => 'Service',
     ],
 ];

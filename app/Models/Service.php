@@ -14,4 +14,9 @@ class Service extends Model
     protected $table = 'services';
     protected $fillable = ['title', 'description', 'image'];
 
+    public function oilTypes()
+    {
+        return $this->hasMany(OilType::class);
+    }
+
 }

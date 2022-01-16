@@ -337,6 +337,7 @@ if (Config::get('languages')[App::getLocale()] == "English") {
 
                             <ul class="submenu">
                                 <li id="oil_brand"><a href="{{url('oil_brand')}}">@lang('messages.oils.oil_brands')</a></li>
+                                <li id="oil_type"><a href="{{url('oil_type')}}">@lang('messages.oils.oil_types')</a></li>
                             </ul>
                         </li>
                     </ul>
