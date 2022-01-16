@@ -345,4 +345,11 @@ return [
         'car_cylinders' => 'اسطوانات السيارات',
         'create_car_cylinder' => 'أضافة اسطوانه جديدة',
     ],
+
+    'oils'=>[
+        'oils' => 'الزيوت',
+        'oil_brands' => 'ماركات الزيوت',
+        'oil_brand' => 'ماركة الزيت',
+        'create_oil_brand' => 'أضافة مركة زيت جديدة',
+    ],
 ];

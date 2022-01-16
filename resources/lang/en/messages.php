@@ -346,4 +346,11 @@ return [
         'car_cylinders' => 'Cars Cylinders',
         'create_car_cylinder' => 'Add New Car Cylinder',
     ],
+
+    'oils'=>[
+        'oils' => 'Oils',
+        'oil_brands' => 'Oils Brands',
+        'oil_brand' => 'Oil Brand',
+        'create_oil_brand' => 'Add New Oil Brand',
+    ],
 ];

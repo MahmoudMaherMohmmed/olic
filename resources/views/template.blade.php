@@ -328,6 +328,20 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </ul>
 
                     <ul class="nav nav-list">
+                        <li id="oil">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-fire"></i>
+                                <span>@lang('messages.oils.oils')</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li id="oil_brand"><a href="{{url('oil_brand')}}">@lang('messages.oils.oil_brands')</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav nav-list">
                         <li id="car">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-car"></i>
