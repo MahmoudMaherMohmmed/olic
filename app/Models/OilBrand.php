@@ -15,4 +15,9 @@ class OilBrand extends Model
 
     protected $table = 'oil_brands';
     protected $fillable = ['title', 'description', 'image'];
+
+    public function oils()
+    {
+        return $this->hasMany(Oil::class);
+    }
 }

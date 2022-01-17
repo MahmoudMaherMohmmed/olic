@@ -352,7 +352,7 @@ return [
         'oils' => 'الزيوت',
         'oil_brands' => 'ماركات الزيوت',
         'oil_brand' => 'ماركة الزيت',
-        'create_oil_brand' => 'أضافة مركة زيت جديدة',
+        'create_oil_brand' => 'أضافة ماركة زيت جديدة',
         'oil_types' => 'انواع الزيوت',
         'create_oil_type' => 'أضافة نوع زيت جديدة',
         'service' => 'الخدمة'

@@ -20,4 +20,9 @@ class OilType extends Model
     {
         return $this->belongsTo(Service::class);
     }
+
+    public function oils()
+    {
+        return $this->hasMany(Oil::class);
+    }
 }
