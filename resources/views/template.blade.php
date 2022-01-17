@@ -420,13 +420,12 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                         <li id="country">
                             <a href="#" class="dropdown-toggle">
                                 <i class="glyphicon glyphicon-globe"></i>
-                                <span>@lang('messages.country.country')</span>
+                                <span>@lang('messages.country.countries')</span>
                                 <b class="arrow fa fa-angle-right"></b>
                             </a>
 
                             <ul class="submenu">
                                 <li id="country_index"><a href="{{url('country')}}">@lang('messages.country.countries')</a></li>
-                                <li id="country_create"><a href="{{url('country/create')}}">@lang('messages.country.add')</a></li>
                             </ul>
                         </li>
                     </ul>
