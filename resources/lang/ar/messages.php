@@ -91,6 +91,8 @@ return [
         'under_review' => 'تحت المراجعه',
         'approved' => 'تم الموافقه عليه',
         'rejected' => 'تم رفضه',
+        'available' => 'متوفر',
+        'not_available' => 'غير متوفر',
     ],
     'country' => [
         'country' => 'البلد',
@@ -350,11 +352,16 @@ return [
 
     'oils'=>[
         'oils' => 'الزيوت',
+        'create_oil' => 'أضافة زيت جديدة',
         'oil_brands' => 'ماركات الزيوت',
         'oil_brand' => 'ماركة الزيت',
         'create_oil_brand' => 'أضافة ماركة زيت جديدة',
         'oil_types' => 'انواع الزيوت',
+        'oil_type' => 'نوع الزيوت',
         'create_oil_type' => 'أضافة نوع زيت جديدة',
-        'service' => 'الخدمة'
+        'service' => 'الخدمة',
+        'serial_number' => 'الرقم التسلسلى',
+        'price' => 'السعر',
+        'quantity' => 'الكمية المتاحة',
     ],
 ];

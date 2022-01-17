@@ -11,7 +11,7 @@ use Validator;
 
 class OilBrandController extends Controller
 {
-     /**
+    /**
      * @var IMAGE_PATH
      */
     const IMAGE_PATH = 'oil_brands';

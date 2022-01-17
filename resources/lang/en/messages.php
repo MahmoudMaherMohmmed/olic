@@ -92,6 +92,8 @@ return [
         'under_review' => 'under review',
         'approved' => 'Approved',
         'rejected' => 'Rejected',
+        'available' => 'Available',
+        'not_available' => 'Not Available',
     ],
     'country' => [
         'country' => 'Country',
@@ -351,11 +353,15 @@ return [
 
     'oils'=>[
         'oils' => 'Oils',
+        'create_oil' => 'Add New Oil',
         'oil_brands' => 'Oils Brands',
         'oil_brand' => 'Oil Brand',
         'create_oil_brand' => 'Add New Oil Brand',
         'oil_types' => 'Oils Types',
         'create_oil_type' => 'Add New Oil type',
         'service' => 'Service',
+        'serial_number' => 'Serial Number',
+        'price' => 'Price',
+        'quantity' => 'Available Quantity',
     ],
 ];

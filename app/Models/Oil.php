@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\Translatable;
 
 class Oil extends Model
 {
@@ -11,7 +13,7 @@ class Oil extends Model
     use Translatable;
     use SoftDeletes;
 
-    protected $table = 'oils';
+    protected $table = 'oil';
     protected $fillable = ['brand_id', 'type_id', 'name', 'serial_number', 'description','price', 'quantity', 'image', 'status'];
 
     public function brand()
