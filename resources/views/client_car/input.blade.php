@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.car_brands')<span class="text-danger">*</span></label>
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.client')<span class="text-danger">*</span></label>
     <div class="col-sm-9 col-lg-10 controls">
       <select class="form-control chosen-rtl" name="client_id" required>
         @foreach($clients as $client)
@@ -10,7 +10,7 @@
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.car_brands')<span class="text-danger">*</span></label>
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.car_brand')<span class="text-danger">*</span></label>
     <div class="col-sm-9 col-lg-10 controls">
       <select class="form-control chosen-rtl" name="model_id" required>
         @foreach($models as $model)
@@ -25,7 +25,7 @@
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.car_brands')<span class="text-danger">*</span></label>
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.car_cylinders')<span class="text-danger">*</span></label>
     <div class="col-sm-9 col-lg-10 controls">
       <select class="form-control chosen-rtl" name="cylinder_id" required>
         @foreach($cylinders as $cylinder)
@@ -36,7 +36,7 @@
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.services.price')<span class="text-danger">*</span></label>
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.manufacture_year')<span class="text-danger">*</span></label>
     <div class="col-sm-9 col-lg-10 controls">
         <input type="text" class="form-control" name="manufacture_year" value="@if ($client_car) {!! $client_car->manufacture_year !!} @endif" />
     </div>

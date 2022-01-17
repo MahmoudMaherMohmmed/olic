@@ -345,6 +345,8 @@ return [
         'create_car_Model' => 'Add New Car Model',
         'car_cylinders' => 'Cars Cylinders',
         'create_car_cylinder' => 'Add New Car Cylinder',
+        'client' => 'Client Name',
+        'manufacture_year' => 'Manufacture Year'
     ],
 
     'oils'=>[

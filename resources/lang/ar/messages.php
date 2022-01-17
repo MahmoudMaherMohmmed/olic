@@ -344,6 +344,8 @@ return [
         'create_car_model' => 'أضافة نوع جديده',
         'car_cylinders' => 'اسطوانات السيارات',
         'create_car_cylinder' => 'أضافة اسطوانه جديدة',
+        'client' => 'اسم العميل',
+        'manufacture_year' => 'سنة التصنيع'
     ],
 
     'oils'=>[

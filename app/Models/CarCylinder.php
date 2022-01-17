@@ -16,4 +16,9 @@ class CarCylinder extends Model
     protected $table = 'car_cylinders';
     protected $fillable = ['title', 'description'];
 
+    public function cars()
+    {
+        return $this->hasMany(ClientCar::class);
+    }
+
 }

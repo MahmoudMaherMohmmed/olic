@@ -35,8 +35,10 @@
                                         <tr>
                                             <th style="width:18px"><input type="checkbox" id="check_all" data-table="{{ $table_name }}"></th>
                                             <th>id</th>
-                                            <th>@lang('messages.name')</th>
+                                            <th>@lang('messages.cars.client')</th>
                                             <th>@lang('messages.cars.car_brand')</th>
+                                            <th>@lang('messages.cars.car_cylinders')</th>
+                                            <th>@lang('messages.cars.manufacture_year')</th>
                                             <th>@lang('messages.action')</th>
                                         </tr>
                                     </thead>
@@ -46,12 +48,14 @@
                                                 <td><input type="checkbox" name="selected_rows[]" value="{{ $value->id }}" class="roles select_all_template">
                                                 </td>
                                                 <td>{{ $value->id }}</td>
+                                                <td>{{ $value->client->name }}</td>
                                                 <td>
-                                                   
+                                                    {{ $value->model!=null ? $value->model->brand->getTranslation('name', Session::get('applocale')) .'-'. $value->model->getTranslation('name', Session::get('applocale')) : '---'}}
                                                 </td>
                                                 <td>
-                                                    {{ $value->brand!=null ? $value->brand->getTranslation('name', Session::get('applocale')) : '---'}}
+                                                    {{ $value->cylinder!=null ? $value->cylinder->getTranslation('name', Session::get('applocale')) : '---'}} 
                                                 </td>
+                                                <td> {{ $value->manufacture_year }} </td>
                                                 <td class="visible-md visible-xs visible-sm visible-lg">
                                                     <div class="btn-group">
                                                         @if (get_action_icons('client_car/{id}/edit', 'get'))

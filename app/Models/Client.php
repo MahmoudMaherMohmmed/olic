@@ -61,4 +61,9 @@ class Client extends Authenticatable
     {
         return $this->hasMany(Notification::class);
     }
+
+    public function cars()
+    {
+        return $this->hasMany(ClientCar::class);
+    }
 }
