@@ -275,41 +275,20 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </li>
                     @endif -->
 
-                    @if (get_action_icons('language', 'get'))
                     <ul class="nav nav-list">
-                        <li id="language">
+                        <li id="client">
                             <a href="#" class="dropdown-toggle">
-                                <i class="glyphicon glyphicon-cloud"></i>
-                                <span>@lang('messages.Static Translations.Languages')</span>
-                                <b class="arrow fa fa-angle-right"></b>
-                            </a>
-
-                            <!-- BEGIN Submenu -->
-                            <ul class="submenu">
-                                <li id="language-index"><a href="{{url('language')}}">@lang('messages.Static Translations.Languages')</a></li>
-                                <li id="language-create"><a href="{{url('language/create')}}">@lang('messages.Static Translations.Add Language')</a></li>
-                            </ul>
-                            <!-- END Submenu -->
-                        </li>
-                    </ul>
-                    @endif
-
-                    @if (get_action_icons('country', 'get'))
-                    <ul class="nav nav-list">
-                        <li id="country">
-                            <a href="#" class="dropdown-toggle">
-                                <i class="glyphicon glyphicon-globe"></i>
-                                <span>@lang('messages.country.country')</span>
+                                <i class="fa fa-users"></i>
+                                <span>@lang('messages.clients.clients')</span>
                                 <b class="arrow fa fa-angle-right"></b>
                             </a>
 
                             <ul class="submenu">
-                                <li id="country_index"><a href="{{url('country')}}">@lang('messages.country.countries')</a></li>
-                                <li id="country_create"><a href="{{url('country/create')}}">@lang('messages.country.add')</a></li>
+                                <li id="client_index"><a href="{{url('client')}}">@lang('messages.clients.clients')</a></li>
+                                <li id="client_create"><a href="{{url('client/create')}}">@lang('messages.clients.create_client')</a></li>
                             </ul>
                         </li>
                     </ul>
-                    @endif
 
                     <ul class="nav nav-list">
                         <li id="service">
@@ -382,7 +361,6 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                                 <b class="arrow fa fa-angle-right"></b>
                             </a>
 
-                            <!-- BEGIN Submenu -->
                             <ul class="submenu">
                                 <li id="bank_index"><a href="{{url('bank')}}">@lang('messages.banks.banks')</a></li>
                                 <li id="bank_create"><a href="{{url('bank/create')}}">@lang('messages.banks.create_bank')</a></li>
@@ -406,22 +384,6 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </ul>
 
                     <ul class="nav nav-list">
-                        <li id="client">
-                            <a href="#" class="dropdown-toggle">
-                                <i class="fa fa-users"></i>
-                                <span>@lang('messages.clients.clients')</span>
-                                <b class="arrow fa fa-angle-right"></b>
-                            </a>
-
-                            <!-- BEGIN Submenu -->
-                            <ul class="submenu">
-                                <li id="client_index"><a href="{{url('client')}}">@lang('messages.clients.clients')</a></li>
-                                <li id="client_create"><a href="{{url('client/create')}}">@lang('messages.clients.create_client')</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <ul class="nav nav-list">
                         <li id="notification">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-bell"></i>
@@ -429,13 +391,46 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                                 <b class="arrow fa fa-angle-right"></b>
                             </a>
 
-                            <!-- BEGIN Submenu -->
                             <ul class="submenu">
                                 <li id="notification_index"><a href="{{url('notification')}}">@lang('messages.notifications.notifications')</a></li>
                                 <li id="notification_create"><a href="{{url('notification/create')}}">@lang('messages.notifications.create_notification')</a></li>
                             </ul>
                         </li>
                     </ul>
+
+                    @if (get_action_icons('language', 'get'))
+                    <ul class="nav nav-list">
+                        <li id="language">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="glyphicon glyphicon-cloud"></i>
+                                <span>@lang('messages.Static Translations.Languages')</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li id="language-index"><a href="{{url('language')}}">@lang('messages.Static Translations.Languages')</a></li>
+                                <li id="language-create"><a href="{{url('language/create')}}">@lang('messages.Static Translations.Add Language')</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+
+                    @if (get_action_icons('country', 'get'))
+                    <ul class="nav nav-list">
+                        <li id="country">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="glyphicon glyphicon-globe"></i>
+                                <span>@lang('messages.country.country')</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li id="country_index"><a href="{{url('country')}}">@lang('messages.country.countries')</a></li>
+                                <li id="country_create"><a href="{{url('country/create')}}">@lang('messages.country.add')</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
 
                     <ul class="nav nav-list">
                         <li id="center">
@@ -445,7 +440,6 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                                 <b class="arrow fa fa-angle-right"></b>
                             </a>
 
-                            <!-- BEGIN Submenu -->
                             <ul class="submenu">
                                 <li id="center_index"><a href="{{url('center')}}">@lang('messages.centers.centers')</a></li>
                                 <li id="term_index"><a href="{{url('term')}}">@lang('messages.terms_conditions.terms_conditions')</a></li>
