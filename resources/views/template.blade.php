@@ -384,6 +384,21 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </ul>
 
                     <ul class="nav nav-list">
+                        <li id="question">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-question-circle"></i>
+                                <span>@lang('messages.questions.questions')</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li id="question_index"><a href="{{url('question')}}">@lang('messages.questions.questions')</a></li>
+                                <li id="question_create"><a href="{{url('question/create')}}">@lang('messages.questions.create_question')</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav nav-list">
                         <li id="notification">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-bell"></i>

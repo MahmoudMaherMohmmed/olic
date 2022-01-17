@@ -364,4 +364,11 @@ return [
         'price' => 'Price',
         'quantity' => 'Available Quantity',
     ],
+
+    'questions'=>[
+        'questions' => 'Questions',
+        'question' => 'Question',
+        'create_question' => 'Add New Question',
+        'answer' => 'Answer',
+    ],
 ];

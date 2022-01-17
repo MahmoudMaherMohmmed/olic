@@ -364,4 +364,11 @@ return [
         'price' => 'السعر',
         'quantity' => 'الكمية المتاحة',
     ],
+
+    'questions'=>[
+        'questions' => 'الاسئلة الشائعه',
+        'question' => 'السؤال',
+        'create_question' => 'أضافة سؤال جديد',
+        'answer' => 'الجواب',
+    ],
 ];
