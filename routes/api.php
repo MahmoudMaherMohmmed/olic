@@ -34,6 +34,9 @@ Route::middleware('localization')->group(function () {
     Route::get('services', 'Api\ServiceController@index');
     Route::get('services/free', 'Api\ServiceController@freeServices');
     Route::get('services/additional', 'Api\ServiceController@additionalServices');
+    Route::get('cars/brands', 'Api\CarController@carsBrands');
+    Route::get('cars/models/{brand_id}', 'Api\CarController@carsModels');
+    Route::get('cars/cylinders', 'Api\CarController@carsCylinders');
 
     Route::middleware('auth:api')->group(function () {
         Route::get('profile', 'Api\ClientController@profile');
@@ -43,5 +46,6 @@ Route::middleware('localization')->group(function () {
         Route::post('logout', 'Api\ClientController@logout');
         Route::get('notifications', 'Api\NotificationController@index');
         Route::post('notification/delete', 'Api\NotificationController@delete');
+        Route::post('client/cars', 'Api\CarController@clientCars');
     });
 });
