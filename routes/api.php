@@ -30,6 +30,11 @@ Route::middleware('localization')->group(function () {
     Route::get('banks', 'Api\BankController@index');
     Route::get('search/{key}', 'Api\AppController@search');
 
+    //-------------------------------------------------------
+    Route::get('services', 'Api\ServiceController@index');
+    Route::get('services/free', 'Api\ServiceController@freeServices');
+    Route::get('services/additional', 'Api\ServiceController@additionalServices');
+
     Route::middleware('auth:api')->group(function () {
         Route::get('profile', 'Api\ClientController@profile');
         Route::post('profile/update', 'Api\ClientController@UpdateProfile');
