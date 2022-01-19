@@ -19,14 +19,13 @@ use App;
 
 class AppController extends Controller
 {
-    public function center(Request $request){
+    public function olic(Request $request){
         $center = Center::first();
         $center_info = [];
-        $lang = $request->lang;
 
         if(isset($center) && $center!=null){
             $center_info = [
-                'description' => isset($lang) && $lang!=null ? $center->getTranslation('description', $lang) : $center->description,
+                'description' => $center->getTranslation('description', app()->getLocale()),
                 'email' => $center->email,
                 'contact_email' => $center->contact_email,
                 "phone_1" => $center->phone_1,
