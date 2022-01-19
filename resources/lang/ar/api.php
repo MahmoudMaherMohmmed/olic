@@ -10,4 +10,5 @@ return [
     'miss_configration' => 'لم يتم اعداد الميل المرسل من خلاله',
     'notification_deleted_successfully' => 'تم حذف الاشعار بنجاح',
     'notification_is_not_found' => 'هذا الاشعار غير موجود',
+    'add_new_car' => 'تم اضافة سيارة جديده الى جاشك الخاص',
 ];

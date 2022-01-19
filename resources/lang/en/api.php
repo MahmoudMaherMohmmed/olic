@@ -10,4 +10,5 @@ return [
     'miss_configration' => 'No Contact Mail is configured',
     'notification_deleted_successfully' => 'Notification deleted successfully.',
     'notification_is_not_found' => 'Notification is not found.',
+    'add_new_car' => 'New Car Added Successfully.',
 ];

@@ -288,6 +288,18 @@ return [
         'location' => 'Location',
         'lat' => 'Lat',
         'lng' => 'Lng',
+        'working_hours' => 'Working Hours',
+        'working_days' => 'Working Days'
+    ],
+
+    'week'=>[
+        'sat' => 'Saturday',
+        'sun' => 'Sunday',
+        'mon' => 'Monday',
+        'tue' => 'Tuesday',
+        'wed' => 'Wednesday',
+        'thu' => 'Thursday',
+        'fri' => 'Friday'
     ],
 
     'terms_conditions'=>[

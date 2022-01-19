@@ -65,6 +65,10 @@ class CenterController extends Controller
         $validator = Validator::make($request->all(), [
             'description' => 'required|array',
             'description.*' => 'required|string',
+            'working_days' => 'required|array',
+            'working_days.*' => 'required|string',
+            'from' => 'required',
+            'to' => 'required',
             'email' => 'required|email',
             'contact_email' => 'required|email',
             'phone_1' => 'required',
@@ -82,7 +86,7 @@ class CenterController extends Controller
         }
 
         $center = new Center();
-        $center->fill($request->except('description', 'logo'));
+        $center->fill($request->except('description', 'working_days', 'logo'));
 
         if ($request->logo) {
             $imgExtensions = array("png", "jpeg", "jpg");
@@ -98,6 +102,8 @@ class CenterController extends Controller
         foreach ($request->description as $key => $value) {
             $center->setTranslation('description', $key, $value);
         }
+
+        $center->working_days = $this->getWorkingDaysString($request->working_days);
         
         $center->save();
         \Session::flash('success', trans('messages.Added Successfully'));
@@ -141,6 +147,10 @@ class CenterController extends Controller
         $validator = Validator::make($request->all(), [
             'description' => 'required|array',
             'description.*' => 'required|string',
+            'working_days' => 'required|array',
+            'working_days.*' => 'required|string',
+            'from' => 'required',
+            'to' => 'required',
             'email' => 'required|email',
             'contact_email' => 'required|email',
             'phone_1' => 'required',
@@ -158,7 +168,7 @@ class CenterController extends Controller
         }
 
         $center = Center::findOrFail($id);
-        $center->fill($request->except('description', 'ímage'));
+        $center->fill($request->except('description', 'working_days', 'ímage'));
 
         if ($request->logo) {
             $imgExtensions = array("png", "jpeg", "jpg");
@@ -178,6 +188,8 @@ class CenterController extends Controller
         foreach ($request->description as $key => $value) {
             $center->setTranslation('description', $key, $value);
         }
+
+        $center->working_days = $this->getWorkingDaysString($request->working_days);
         
         $center->save();
 
@@ -207,5 +219,19 @@ class CenterController extends Controller
     public function handleFile(UploadedFile $file)
     {
         return $this->uploaderService->upload($file, self::IMAGE_PATH);
+    }
+
+    private function getWorkingDaysString($working_days){
+        $working_days_string = '';
+
+        foreach($working_days as $key=>$value){
+            if( $key!= 0 ) {
+                $working_days_string .= ', ';
+            }
+
+            $working_days_string .= $value;
+        }
+
+        return $working_days_string;
     }
 }

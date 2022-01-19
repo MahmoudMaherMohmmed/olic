@@ -9,6 +9,7 @@ use App\Models\Center;
 use App\Models\Country;
 use App\Models\Trip;
 use App\Models\Slider;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -45,11 +46,10 @@ class AppController extends Controller
     public function TermsAndConditions(Request $request){
         $term = Term::first();
         $terms_and_conditions = [];
-        $lang = $request->lang;
 
         if(isset($term) && $term!=null){
             $terms_and_conditions = [
-                'description' => isset($lang) && $lang!=null ? $term->getTranslation('description', $lang) : $term->description,
+                'description' => $term->getTranslation('description', app()->getLocale()),
             ];
         }
 
@@ -214,6 +214,27 @@ class AppController extends Controller
         }
 
         return $sliders_array;
+    }
+
+    public function commonQuestions()
+    {
+        $common_questions = $this->formatCommonQuestions(Question::orderBy('id', 'DESC')->get(), app()->getLocale());
+
+        return response()->json(['common_questions' => $common_questions], 200);
+    }
+
+    private function formatCommonQuestions($common_questions, $lang){
+        $common_questions_array = [];
+
+        foreach($common_questions as $question){
+            array_push($common_questions_array, [
+                'id' => $question->id,
+                'question' => $question->getTranslation('question', $lang),
+                'answer' => $question->getTranslation('answer', $lang),
+            ]);
+        }
+
+        return $common_questions_array;
     }
     
 }

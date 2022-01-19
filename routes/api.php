@@ -29,6 +29,7 @@ Route::middleware('localization')->group(function () {
     Route::get('sliders', 'Api\AppController@sliders');
     Route::get('banks', 'Api\BankController@index');
     Route::get('search/{key}', 'Api\AppController@search');
+    Route::get('common_questions', 'Api\AppController@commonQuestions');
 
     //-------------------------------------------------------
     Route::get('services', 'Api\ServiceController@index');
@@ -47,5 +48,6 @@ Route::middleware('localization')->group(function () {
         Route::get('notifications', 'Api\NotificationController@index');
         Route::post('notification/delete', 'Api\NotificationController@delete');
         Route::post('client/cars', 'Api\CarController@clientCars');
+        Route::post('client/cars/add', 'Api\CarController@createClientCars');
     });
 });

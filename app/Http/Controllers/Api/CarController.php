@@ -8,6 +8,7 @@ use App\Models\CarModel;
 use App\Models\ClientCar;
 use App\Models\CarCylinder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CarController extends Controller
 {
@@ -103,5 +104,22 @@ class CarController extends Controller
         }
 
         return $client_cars_array;
+    }
+
+    public function createClientCars(Request $request){
+        $client = $request->user();
+
+        $Validated = Validator::make($request->all(), [
+            'model_id'      => 'required',
+            'cylinder_id'     => 'required',
+            'manufacture_year'     => 'required|numeric',
+        ]);
+
+        if($Validated->fails())
+            return response()->json($Validated->messages(), 403);
+
+        ClientCar::create(array_merge($request->all(), ['client_id' => $client->id]));
+        
+        return response()->json(['messaage' => trans('api.add_new_car')], 200);
     }
 }

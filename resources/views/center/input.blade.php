@@ -29,6 +29,29 @@
 </div>
 
 <div class="form-group">
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.centers.working_days')<span class="text-danger">*</span></label>
+    <div class="col-sm-9 col-lg-10 controls">
+      <select class="form-control chosen-rtl" name="working_days[]" required multiple>
+          @include('partial.days')
+      </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.centers.working_hours')<span class="text-danger">*</span></label>
+    <div class="col-sm-4 col-lg-5 controls">
+      <select class="form-control chosen-rtl" name="from" required>
+          @include('partial.hours_from')
+      </select>
+    </div>
+    <div class="col-sm-5 col-lg-5 controls">
+      <select class="form-control chosen-rtl" name="to" required>
+            @include('partial.hours_to')
+      </select>
+    </div>
+</div>
+
+<div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.centers.emails') <span class="text-danger">*</span></label>
     <div class="col-sm-4 col-lg-5 controls">
         <input type="email" class="form-control" name="email" placeholder="@lang('messages.centers.email')" value="@if ($center) {!! $center->email !!} @endif" />
