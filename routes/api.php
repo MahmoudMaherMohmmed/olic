@@ -39,6 +39,8 @@ Route::middleware('localization')->group(function () {
     Route::get('cars/models/{brand_id}', 'Api\CarController@carsModels');
     Route::get('cars/cylinders', 'Api\CarController@carsCylinders');
     Route::post('day_appointments', 'Api\AppointmentController@dayAppointments');
+    Route::get('oil/types', 'Api\OilController@oilTypes');
+    Route::get('oils/{type_id}/type', 'Api\OilController@oils');
 
     Route::middleware('auth:api')->group(function () {
         Route::get('profile', 'Api\ClientController@profile');
