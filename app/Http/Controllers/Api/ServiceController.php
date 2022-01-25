@@ -47,4 +47,23 @@ class ServiceController extends Controller
 
         return $services_array;
     }
+
+    public function checkLocation(Request $request){
+        $latitude=30.0315298;
+        $longitude=31.2532042;
+        $geolocation = $request->lat.','.$request->lng;
+        $response = \Http::get('https://maps.googleapis.com/maps/api/geocode/json', [
+            'latlng' => $geolocation,
+            'key' => 'AIzaSyA4lIndWVJTXYLEgRwBQ4g3BXmAEHQup44',
+            'sensor'    =>  false
+        ]);
+        $json_decode = json_decode($response);
+        if(isset($json_decode->results[0])) {
+            $response = array();
+            foreach($json_decode->results[0]->address_components as $addressComponet) {
+                $response[] = $addressComponet->long_name;
+            }
+            dd($response);
+        }
+    }
 }

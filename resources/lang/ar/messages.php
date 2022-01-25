@@ -383,4 +383,12 @@ return [
         'create_question' => 'أضافة سؤال جديد',
         'answer' => 'الجواب',
     ],
+
+    'suppliers'=>[
+        'suppliers' => 'الموردين',
+        'supplier' => 'مورد',
+        'create_supplier' => 'أضافة مورد جديد',
+        'edit_supplier' => 'تعديل بيانات المورد',
+        'name' => 'اسم المورد',
+    ],
 ];

@@ -108,6 +108,7 @@ function get_static_routes()
         Route::Resource('notification', 'NotificationController');
         Route::Resource('slider', 'SliderController');
         Route::Resource('question', 'QuestionController');
+        Route::Resource('supplier', 'SupplierController');
     });
 
 

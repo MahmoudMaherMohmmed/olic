@@ -41,6 +41,7 @@ Route::middleware('localization')->group(function () {
     Route::post('day_appointments', 'Api\AppointmentController@dayAppointments');
     Route::get('oil/types', 'Api\OilController@oilTypes');
     Route::get('oils/{type_id}/type', 'Api\OilController@oils');
+    Route::post('services/check_location', 'Api\ServiceController@checkLocation');
 
     Route::middleware('auth:api')->group(function () {
         Route::get('profile', 'Api\ClientController@profile');

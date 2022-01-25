@@ -383,4 +383,12 @@ return [
         'create_question' => 'Add New Question',
         'answer' => 'Answer',
     ],
+
+    'suppliers'=>[
+        'suppliers' => 'Suppliers',
+        'supplier' => 'Supplier',
+        'create_supplier' => 'Add New Supplier',
+        'edit_supplier' => 'Edit Supplier',
+        'name' => 'Supplier Name',
+    ],
 ];

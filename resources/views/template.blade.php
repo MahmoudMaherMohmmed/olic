@@ -340,6 +340,20 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </ul>
 
                     <ul class="nav nav-list">
+                        <li id="supplier">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span>@lang('messages.suppliers.suppliers')</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li id="supplier_index"><a href="{{url('supplier')}}">@lang('messages.suppliers.suppliers')</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav nav-list">
                         <li id="bank_transfer">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-bookmark"></i>
