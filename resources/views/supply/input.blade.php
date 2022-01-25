@@ -3,9 +3,16 @@
     <div class="col-sm-9 col-lg-10 controls">
       <select class="form-control chosen-rtl" name="supplier_id" required>
         @foreach($suppliers as $supplier)
-            <option value="{{$supplier->id}}" {{$supply && $supply->supplier_id==$supplier->id ? 'selected' : '' }}>{{$supplier->name}}</option>
+            <option value="{{$supplier->id}}">{{$supplier->name}}</option>
         @endforeach
       </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.oils.oils')<span class="text-danger">*</span></label>
+    <div id="supplies_div">
+
     </div>
 </div>
 
@@ -40,3 +47,22 @@
         {!! Form::submit($buttonAction,['class'=>'btn btn-primary']) !!}
     </div>
 </div>
+
+@section('script')
+    <script>
+        $(document).ready(function(){
+            var supply_html = '<div class="col-sm-5 col-lg-5 controls">';
+                supply_html +='    <select class="form-control chosen-rtl" name="oil_id" required>';
+                                @foreach($oils as $oil)
+                supply_html +=  '      <option value="{{$oil->id}}">{{$oil->getTranslation("name", Session::get("applocale"))}}</option>';
+                                @endforeach
+                supply_html +='</select>';
+                supply_html +='</div>';
+                supply_html +='<div class="col-sm-3 col-lg-3 controls">';
+                supply_html +='<input type="text" class="form-control" name="quantity" placeholder="Quantity"/>';
+                supply_html +='</div>';
+                
+            $("#supplies_div").append( supply_html );
+        });
+    </script>
+@endsection
