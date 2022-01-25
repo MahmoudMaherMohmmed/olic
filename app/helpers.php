@@ -109,6 +109,7 @@ function get_static_routes()
         Route::Resource('slider', 'SliderController');
         Route::Resource('question', 'QuestionController');
         Route::Resource('supplier', 'SupplierController');
+        Route::Resource('supply', 'SupplyController');
     });
 
 

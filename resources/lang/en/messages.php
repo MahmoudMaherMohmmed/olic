@@ -391,4 +391,10 @@ return [
         'edit_supplier' => 'Edit Supplier',
         'name' => 'Supplier Name',
     ],
+
+    'supplies'=>[
+        'supplies' => 'Supplies',
+        'supply' => 'Supply',
+        'create_supply' => 'Add New Supply',
+    ],
 ];

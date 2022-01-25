@@ -349,6 +349,7 @@ if (Config::get('languages')[App::getLocale()] == "English") {
 
                             <ul class="submenu">
                                 <li id="supplier_index"><a href="{{url('supplier')}}">@lang('messages.suppliers.suppliers')</a></li>
+                                <li id="supplier-supplies"><a href="{{url('supply')}}">@lang('messages.supplies.supplies')</a></li>
                             </ul>
                         </li>
                     </ul>
