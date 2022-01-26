@@ -61,10 +61,14 @@ class SupplyController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $validator = Validator::make($request->all(), [
             'supplier_id' => 'required',
+            'oil_ids' => 'required',
+            'quantities' => 'required',
             'image' => 'required',
         ]);
+
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
