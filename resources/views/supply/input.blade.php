@@ -51,23 +51,27 @@
 
 @section('script')
     <script>
+        var supply_div_counter = 1;
+
         $(document).ready(function(){
-            var supply_html = createSuppliesDivHTML();
+            var supply_html = createSuppliesDivHTML(supply_div_counter);
                 
             $("#supplies_div").append( supply_html );
+
+            supply_div_counter++;
         });
 
-        function createSuppliesDivHTML(){
+        function createSuppliesDivHTML(counter){
             var supply_html = '<div id="supply_div">';
                 supply_html +='    <div class="col-sm-8 col-lg-8 controls" style="padding-bottom: 7px;">';
-                supply_html +='        <select class="form-control chosen-rtl" name="oil_id" required>';
+                supply_html +='        <select class="form-control chosen-rtl" name="oil_id_' + counter + '" required>';
                                 @foreach($oils as $oil)
                 supply_html +='            <option value="{{$oil->id}}">{{$oil->getTranslation("name", Session::get("applocale"))}}</option>';
                                 @endforeach
                 supply_html +='        </select>';
                 supply_html +='    </div>';
                 supply_html +='    <div class="col-sm-3 col-lg-3 controls" style="padding-bottom: 7px;">';
-                supply_html +='        <input type="text" class="form-control" name="quantity" placeholder="Quantity"/>';
+                supply_html +='        <input type="text" class="form-control" name="quantity_' + counter + '" placeholder="Quantity"/>';
                 supply_html +='    </div>';
                 supply_html +='    <div class="col-sm-1 col-lg-1" style="padding-bottom: 7px;">';
                 supply_html +='        <a class="btn btn-success" onclick="addSupplyDiv(this)" data-original-title="Create New Supply"><i class="fa fa-plus"></i></a>';
@@ -79,11 +83,13 @@
         }
 
         function addSupplyDiv(element){
-            var supply_html = createSuppliesDivHTML();
+            var supply_html = createSuppliesDivHTML(supply_div_counter);
            
             $("#supplies_div").append( supply_html );
 
             updateSupplyDiv(element);
+
+            supply_div_counter++;
         }
 
         function updateSupplyDiv(element){
