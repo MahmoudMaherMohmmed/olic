@@ -25,4 +25,9 @@ class Oil extends Model
     {
         return $this->belongsTo(OilType::class);
     }
+
+    public function coupons()
+    {
+      return $this->hasMany(Coupon::class);
+    }
 }

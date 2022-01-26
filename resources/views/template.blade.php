@@ -414,6 +414,21 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </ul>
 
                     <ul class="nav nav-list">
+                        <li id="coupon">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-trophy"></i>
+                                <span>@lang('messages.coupons.coupons')</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li id="coupons"><a href="{{url('coupon')}}">@lang('messages.coupons.coupons')</a></li>
+                                <li id="coupon_create"><a href="{{url('coupon/create')}}">@lang('messages.coupons.create_coupon')</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav nav-list">
                         <li id="notification">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-bell"></i>

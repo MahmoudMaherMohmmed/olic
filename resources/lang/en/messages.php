@@ -408,4 +408,15 @@ return [
         'country' => 'Country',
         'place' => 'Place',
     ],
+
+    'coupons'=>[
+        'coupons' => 'Coupons',
+        'coupon' => 'Coupon',
+        'create_coupon' => 'Add New Coupon',
+        'from' => 'From',
+        'to' => 'To',
+        'discount' => 'Discount',
+        'oil' => 'Oil',
+        'date' => 'Date',
+    ],
 ];
