@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Supply;
 use App\Models\Supplier;
 use App\Models\Oil;
+use App\Models\SupplyItem;
 use Illuminate\Http\Request;
 use App\Http\Services\UploaderService;
 use Illuminate\Http\UploadedFile;
@@ -61,7 +62,6 @@ class SupplyController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $validator = Validator::make($request->all(), [
             'supplier_id' => 'required',
             'oil_ids' => 'required',
@@ -88,7 +88,10 @@ class SupplyController extends Controller
             $supply->image = $this->handleFile($request['image']);
         }
         
-        $supply->save();
+        if( $supply->save() ){
+            $this->saveSupplyItems($request, $supply->id);
+        }
+
         \Session::flash('success', trans('messages.Added Successfully'));
         return redirect('/supply');
     }
@@ -149,5 +152,29 @@ class SupplyController extends Controller
     public function handleFile(UploadedFile $file)
     {
         return $this->uploaderService->upload($file, self::IMAGE_PATH);
+    }
+
+    private function saveSupplyItems($request, $supply_id){
+        foreach($request->oil_ids as $key => $id){
+            if($request->quantities[$key] != null){
+                $supply_item = new SupplyItem();
+                $supply_item->supply_id = $supply_id;
+                $supply_item->oil_id = $id;
+                $supply_item->quantity = $request->quantities[$key];
+                if( $supply_item->save() ){
+                    $this->updateOilQuantity($supply_item->oil_id, $supply_item->quantity);
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private function updateOilQuantity($id, $quantity){
+        $oil = Oil::where('id', $id)->first();
+        $oil->quantity = $oil->quantity + $quantity;
+        $oil->save();
+
+        return true;
     }
 }
