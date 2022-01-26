@@ -13,8 +13,8 @@ class Country extends Model
 
     protected $fillable = ['title'];
 
-    public function trips()
+    public function cities()
     {
-      return $this->hasMany(Trip::class);
+      return $this->hasMany(City::class);
     }
 }

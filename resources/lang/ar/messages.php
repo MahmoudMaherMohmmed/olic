@@ -95,8 +95,9 @@ return [
         'not_available' => 'غير متوفر',
     ],
     'country' => [
-        'country' => 'البلد',
-        'countries' => 'البلاد',
+        'countries_and_cities' => 'الدول والمناطق',
+        'country' => 'الدولة',
+        'countries' => 'الدول',
         'regular-expression' => 'التعبير النمطى',
         'delete' => 'أزالة',
         'add' => 'أضافة بلد جديد',
@@ -396,5 +397,15 @@ return [
         'supplies' => 'التوريدات',
         'supply' => 'التوريدات',
         'create_supply' => 'أضافة توريدات جديدة',
+    ],
+
+    'cities'=>[
+        'cities' => 'المناطق',
+        'city' => 'المنطقة',
+        'create_city' => 'أضافة منطقة جديدة',
+        'name' => 'الاسم',
+        'countries' => 'الدول',
+        'country' => 'الدولة',
+        'place' => 'الموقع',
     ],
 ];

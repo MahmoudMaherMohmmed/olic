@@ -12,7 +12,7 @@ class OilType extends Model
     use HasFactory;
     use Translatable;
     use SoftDeletes;
-
+ 
     protected $table = 'oil_types';
     protected $fillable = ['service_id', 'title', 'description'];
 

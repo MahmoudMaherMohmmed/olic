@@ -110,6 +110,7 @@ function get_static_routes()
         Route::Resource('question', 'QuestionController');
         Route::Resource('supplier', 'SupplierController');
         Route::Resource('supply', 'SupplyController');
+        Route::Resource('city', 'CityController');
     });
 
 

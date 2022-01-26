@@ -96,6 +96,7 @@ return [
         'not_available' => 'Not Available',
     ],
     'country' => [
+        'countries_and_cities' => 'Countries and Cities',
         'country' => 'Country',
         'countries' => 'Countries',
         'regular-expression' => 'Regular Expression',
@@ -396,5 +397,15 @@ return [
         'supplies' => 'Supplies',
         'supply' => 'Supply',
         'create_supply' => 'Add New Supply',
+    ],
+
+    'cities'=>[
+        'cities' => 'Cities',
+        'city' => 'City',
+        'create_city' => 'Add New City',
+        'name' => 'Name',
+        'countries' => 'Countries',
+        'country' => 'Country',
+        'place' => 'Place',
     ],
 ];
