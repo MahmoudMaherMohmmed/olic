@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\FreeService;
 use App\Models\AdditionalService;
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -49,9 +50,24 @@ class ServiceController extends Controller
     }
 
     public function checkLocation(Request $request){
-        $latitude=30.0315298;
-        $longitude=31.2532042;
-        $geolocation = $request->lat.','.$request->lng;
+        $client_address = $this->getLocation($request->lat, $request->lng);
+
+        $service_cities = City::where('status', 1)->get(['lat', 'lng']);
+        foreach($service_cities as $city){
+            $city_address = $this->getLocation($city->lat, $city->lng);
+
+            if(($client_address[0] == $city_address[0]) && ($client_address[1] == $city_address[1])){
+                return response()->json(['messaage' => trans('api.service_location_available')], 200);
+            }
+        }
+
+        return response()->json(['messaage' => trans('api.service_location_not_available')], 403);
+    }
+
+    private function getLocation($lat, $lng){
+        $address = array();
+
+        $geolocation = $lat.','.$lng;
         $response = \Http::get('https://maps.googleapis.com/maps/api/geocode/json', [
             'latlng' => $geolocation,
             'key' => 'AIzaSyA4lIndWVJTXYLEgRwBQ4g3BXmAEHQup44',
@@ -59,11 +75,11 @@ class ServiceController extends Controller
         ]);
         $json_decode = json_decode($response);
         if(isset($json_decode->results[0])) {
-            $response = array();
             foreach($json_decode->results[0]->address_components as $addressComponet) {
-                $response[] = $addressComponet->long_name;
+                $address[] = $addressComponet->long_name;
             }
-            dd($response);
         }
+
+        return array_reverse($address);
     }
 }
