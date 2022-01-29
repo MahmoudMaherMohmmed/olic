@@ -19,11 +19,16 @@ class Reservation extends Model
 
     public function technician()
     {
-        return $this->belongsTo(Trip::class);
+        return $this->belongsTo(Technician::class);
     }
 
     public function bankTransfer()
     {
         return $this->hasOne(BankTransfer::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(ReservationItem::class);
     }
 }

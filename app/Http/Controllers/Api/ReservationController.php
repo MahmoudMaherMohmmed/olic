@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Reservation;
+use App\Models\ReservationItem;
 use App\Models\Bank;
 use App\Models\BankTransfer;
+use App\Models\Oil;
+use App\Models\FreeService;
+use App\Models\AdditionalService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
@@ -31,6 +35,7 @@ class ReservationController extends Controller
             'date' => 'required',
             'time' => 'required',
             'total_price' => 'required',
+            'services' => 'required',
             'payment_type' => 'required',
             'image'      => 'max:65536'
         ]);
@@ -45,19 +50,36 @@ class ReservationController extends Controller
         $reservation->from = $request->time;
         $reservation->to = date('H:i A', (strtotime($request->time) + 60*60) );
         if($reservation->save()){
+            $this->saveServices($request->services, $reservation->id);
 
             if($reservation->payment_type == 1){
                 $this->saveBankTransfer($request, $reservation->id);
             }
 
-            return response()->json(['message' => 'api.appointment_reserved'], 200);
+            return response()->json(['message' => trans('api.appointment_reserved')], 200);
         }else{
-            return response()->json(['message' => 'error_occurred'], 200);
+            return response()->json(['message' => trans('api.error_occurred')], 403);
         }  
     }
 
     private function formatDate($date){
         return Carbon::createFromFormat('Y M d', $date)->format('Y-m-d');
+    }
+
+    private function saveServices($services, $reservation_id){
+        $services_array = explode(', ', $services);
+
+        if(count($services_array) > 0){
+            foreach($services_array as $service){
+                $service_item = new ReservationItem();
+                $service_item->reservation_id = $reservation_id;
+                $service_item->service_id = explode('_', $service)[0];
+                $service_item->type = explode('_', $service)[1];
+                $service_item->save();
+            }
+        }
+
+        return true;
     }
 
     private function saveBankTransfer($request, $reservation_id){
@@ -75,6 +97,68 @@ class ReservationController extends Controller
         }
 
         return true;
+    }
+
+    public function clientReservations(Request $request){
+        $client_id = $request->user()->id;
+        $reservations_array = [];
+
+        $reservations = Reservation::where('client_id', $client_id)->get();
+        if(isset($reservations) && $reservations!=null){
+            foreach($reservations as $reservation){
+                array_push($reservations_array, $this->formatReservation($reservation, app()->getLocale()));
+            }
+        }
+
+        return response()->json(['reservations' => $reservations_array], 200);
+    }
+
+    private function formatReservation($reservation, $lang){
+        $reservation = [
+            'order_id' => '#'.$reservation->id,
+            'technician' => $reservation->technician->name,
+            'date' => $reservation->date,
+            'time' => $reservation->from,
+            'total_price' => $reservation->total_price,
+            'coupon' => $reservation->coupon,
+            'services' => $this->ReservationServices($reservation->items, $lang),
+        ];
+
+        return $reservation;
+    }
+
+    private function ReservationServices($services, $lang){
+        $services_array = [];
+
+        foreach($services as $service){
+            if($service->type == 'service'){
+                $service = Oil::where('id', $service->service_id)->first();
+                if(isset($service) && $service!=null){
+                    array_push($services_array, [
+                        'name' => $service->getTranslation('name', $lang),
+                        'price' => $service->price,
+                    ]);
+                }
+            }elseif($service->type == 'additional'){
+                $service = AdditionalService::where('id', $service->service_id)->first();
+                if(isset($service) && $service!=null){
+                    array_push($services_array, [
+                        'name' => $service->getTranslation('name', $lang),
+                        'price' => $service->price,
+                    ]);
+                }
+            }elseif($service->type == 'free'){
+                $service = FreeService::where('id', $service->service_id)->first();
+                if(isset($service) && $service!=null){
+                    array_push($services_array, [
+                        'name' => $service->getTranslation('name', $lang),
+                        'price' => 0,
+                    ]);
+                }
+            }
+        }
+
+        return $services_array;
     }
 
     /**
