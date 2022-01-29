@@ -54,5 +54,6 @@ Route::middleware('localization')->group(function () {
         Route::post('notification/delete', 'Api\NotificationController@delete');
         Route::post('client/cars', 'Api\CarController@clientCars');
         Route::post('client/cars/add', 'Api\CarController@createClientCars');
+        Route::post('reservation/make', 'Api\ReservationController@makeReservation');
     });
 });

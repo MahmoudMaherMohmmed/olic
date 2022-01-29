@@ -17,4 +17,9 @@ class Technician extends Model
      * @var array
      */
     protected $fillable = ['name', 'email', 'password', 'phone', 'phone_2', 'image'];
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }

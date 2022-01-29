@@ -7,7 +7,9 @@ use App\Models\Service;
 use App\Models\FreeService;
 use App\Models\AdditionalService;
 use App\Models\City;
+use App\Models\Coupon;
 use Illuminate\Http\Request;
+use Validator;
 
 class ServiceController extends Controller
 {
@@ -100,15 +102,17 @@ class ServiceController extends Controller
                 'discount' => $coupon->discount,
                 'oil' => $this->getCouponOil($request->coupon, app()->getLocale()),
             ];
+        }else{
+            return response()->json(['messaage' => trans('api.coupon_not_found')], 403);
         }
 
-        return $coupon_details;
+        return response()->json(['coupon' => $coupon_details], 403);
     }
 
     private function getCouponOil($coupon, $lang){
         $oil = [];
 
-        $coupons = Coupon::where('coupon', $request->coupon)->get();
+        $coupons = Coupon::where('coupon', $coupon)->get();
         foreach($coupons as $coupon){
             array_push($oil, [
                 'id' => $coupon->oil->id,

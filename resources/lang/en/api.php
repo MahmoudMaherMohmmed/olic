@@ -13,4 +13,7 @@ return [
     'add_new_car' => 'New Car Added Successfully.',
     'service_location_not_available' => 'We apologize to you! Please note that the service is not available in this area',
     'service_location_available' => 'The service is available in your area. Thank you for choosing us! Your request will now be completed',
+    'coupon_not_found' => 'This coupon is not available',
+    'appointment_reserved' => 'appointment reserved successfully.',
+    'error_occurred' => 'An error occurred.',
 ];
