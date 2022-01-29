@@ -112,6 +112,7 @@ function get_static_routes()
         Route::Resource('supply', 'SupplyController');
         Route::Resource('city', 'CityController');
         Route::Resource('coupon', 'CouponController');
+        Route::Resource('technician', 'TechnicianController');
     });
 
 

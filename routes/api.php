@@ -42,6 +42,7 @@ Route::middleware('localization')->group(function () {
     Route::get('oil/types', 'Api\OilController@oilTypes');
     Route::get('oils/{type_id}/type', 'Api\OilController@oils');
     Route::post('services/check_location', 'Api\ServiceController@checkLocation');
+    Route::post('coupon/apply', 'Api\ServiceController@applyCoupon');
 
     Route::middleware('auth:api')->group(function () {
         Route::get('profile', 'Api\ClientController@profile');

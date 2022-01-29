@@ -419,4 +419,9 @@ return [
         'oil' => 'Oil',
         'date' => 'Date',
     ],
+
+    'technicians'=>[
+        'technicians' => 'Technicians',
+        'create_technician' => 'Add New Technician',
+    ],
 ];

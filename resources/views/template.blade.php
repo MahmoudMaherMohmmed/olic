@@ -291,6 +291,21 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </ul>
 
                     <ul class="nav nav-list">
+                        <li id="client">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-cogs"></i>
+                                <span>@lang('messages.technicians.technicians')</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li id="technician_index"><a href="{{url('technician')}}">@lang('messages.technicians.technicians')</a></li>
+                                <li id="technician_create"><a href="{{url('technician/create')}}">@lang('messages.technicians.create_technician')</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav nav-list">
                         <li id="service">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-building"></i>
@@ -496,9 +511,9 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                 <!-- END Navlist -->
 
                 <!-- BEGIN Sidebar Collapse Button -->
-                <div id="sidebar-collapse" class="visible-lg">
+                <!-- <div id="sidebar-collapse" class="visible-lg">
                     <i class="fa fa-angle-double-left"></i>
-                </div>
+                </div> -->
                 <!-- END Sidebar Collapse Button -->
             </div>
             <!-- END Sidebar -->

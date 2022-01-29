@@ -82,4 +82,40 @@ class ServiceController extends Controller
 
         return array_reverse($address);
     }
+
+    public function applyCoupon(Request $request){
+        $Validated = Validator::make($request->all(), [
+            'coupon'      => 'required',
+        ]);
+
+        if($Validated->fails())
+            return response()->json($Validated->messages(), 403);
+
+        $coupon_details = [];
+        $coupon = Coupon::where('coupon', $request->coupon)->first();
+        if(isset($coupon) && $coupon!=null){
+            $coupon_details = [
+                'id' => $coupon->id,
+                'coupon' => $coupon->coupon,
+                'discount' => $coupon->discount,
+                'oil' => $this->getCouponOil($request->coupon, app()->getLocale()),
+            ];
+        }
+
+        return $coupon_details;
+    }
+
+    private function getCouponOil($coupon, $lang){
+        $oil = [];
+
+        $coupons = Coupon::where('coupon', $request->coupon)->get();
+        foreach($coupons as $coupon){
+            array_push($oil, [
+                'id' => $coupon->oil->id,
+                'name' => $coupon->oil->getTranslation('name', $lang),
+            ]);
+        }
+
+        return $oil;
+    }
 }

@@ -419,4 +419,9 @@ return [
         'oil' => 'الزيوت',
         'date' => 'التاريخ',
     ],
+
+    'technicians'=>[
+        'technicians' => 'الفنيين',
+        'create_technician' => 'أضافة فنى جديد',
+    ],
 ];
