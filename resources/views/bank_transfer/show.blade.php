@@ -11,18 +11,32 @@
                     <div class="box box-black">
                         <div class="box-title">
                             <h3><i class="fa fa-table"></i> @lang('messages.bank_transfers.bank_transfer_details')</h3>
+                            @php $reservation = $bank_transfer->reservation; @endphp
+                            <a class="btn btn-sm btn-success show-tooltip" style="float: left" href='{{ url("reservation/$reservation->id/edit") }}' title="Update">@lang('messages.reservations.update_reservation')</a>
                         </div>
                         <div class="box-content">
                             <div class="table-responsive">
                                 <table class="table table-striped dt-responsive" cellspacing="0" width="100%">
                                     <tbody>
                                         <tr>
-                                            <td> @lang('messages.name') </td>
+                                            <td> @lang('messages.reservations.client_name') </td>
                                             <td> {{ $bank_transfer->reservation->client->name }} </td>
                                         </tr>
                                         <tr>
-                                            <td>@lang('messages.trips.name')</td>
-                                            <td> {{ $bank_transfer->reservation->trip->getTranslation('name', Session::get('applocale')) }} </td>
+                                            <td> @lang('messages.reservations.technician_name') </td>
+                                            <td> {{ $bank_transfer->reservation->technician->name }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> @lang('messages.reservations.date') </td>
+                                            <td> {{ $bank_transfer->reservation->date }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> @lang('messages.reservations.time') </td>
+                                            <td> {{ $bank_transfer->reservation->from }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td> @lang('messages.reservations.total_price') </td>
+                                            <td> {{ $bank_transfer->reservation->total_price }} </td>
                                         </tr>
                                         <tr>
                                             <td> @lang('messages.bank_transfers.bank_name') </td>
@@ -42,7 +56,7 @@
                                         </tr>
                                         <tr>
                                             <th> @lang('messages.bank_transfers.image') </th>
-                                            <td> <img src="{{ url($bank_transfer->image) }}" /> </td>
+                                            <td> <img src="{{ url($bank_transfer->image) }}" style="width: 100%;"/> </td>
                                         </tr>
                                     </tbody>
                                 </table>

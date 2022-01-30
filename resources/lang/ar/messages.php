@@ -259,9 +259,16 @@ return [
 
     'reservations'=>[
         'reservations' => 'الحجوزات',
-        'create_reservation' => 'حجز رحلة',
+        'create_reservation' => 'أضافة حجز جديد',
         'client_name' => 'أسم العميل',
-        'trip_name' => 'عنوان الرحله',
+        'technician_name' => 'أسم الفنى',
+        'date' => 'تاريخ الطلب',
+        'time' => 'موعد الحجز',
+        'total_price' => 'السعر الاجمالى',
+        'payment_type' => 'وسيلة الدفع',
+        'created_at' => 'تاريخ اضافة الطلب',
+        'status' => 'حالة الطلب',
+        'update_reservation' => 'تعديل الحجز',
     ],
 
     'clients'=>[

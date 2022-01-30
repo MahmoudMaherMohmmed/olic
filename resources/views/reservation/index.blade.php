@@ -35,11 +35,13 @@
                                         <tr>
                                             <th style="width:18px"><input type="checkbox" id="check_all" data-table="{{ $table_name }}"></th>
                                             <th>id</th>
-                                            <th>@lang('messages.name')</th>
-                                            <th>@lang('messages.trips.name')</th>
-                                            <th>@lang('messages.trips.payment_type')</th>
-                                            <th>@lang('messages.trips.created_at')</th>
-                                            <th>@lang('messages.trips.status')</th>
+                                            <th>@lang('messages.reservations.client_name')</th>
+                                            <th>@lang('messages.reservations.technician_name')</th>
+                                            <th>@lang('messages.reservations.date')</th>
+                                            <th>@lang('messages.reservations.total_price')</th>
+                                            <th>@lang('messages.reservations.payment_type')</th>
+                                            <th>@lang('messages.reservations.created_at')</th>
+                                            <th>@lang('messages.reservations.status')</th>
                                             <th>@lang('messages.action')</th>
                                         </tr>
                                     </thead>
@@ -50,8 +52,10 @@
                                                 </td>
                                                 <td>{{ $value->id }}</td>
                                                 <td> {{ $value->client->name }} </td>
-                                                <td> {{ $value->trip->getTranslation('name', Session::get('applocale')) }} </td>
-                                                <td> {{ $value->bankTransfer!=null ? ($value->payment_type==0 ? 'تحويل بنكى' : 'دفع الالكترونى') : '---'}} </td>
+                                                <td> {{ $value->technician->name }} </td>
+                                                <td> {{ $value->date }} </td>
+                                                <td> {{ $value->total_price }} </td>
+                                                <td> {{ $value->payment_type==1 ? 'تحويل بنكى' : 'كاش' }} </td>
                                                 <td> {{$value->created_at->format('d/m/Y')}} </td>
                                                 <td>
                                                     @if($value->status==2)
@@ -69,7 +73,7 @@
                                                                 href='{{ url("reservation/$value->id/edit") }}'
                                                                 title="Edit"><i class="fa fa-edit"></i></a>
                                                         @endif
-                                                        @if($value->payment_type==0 && $value->bankTransfer!=null)
+                                                        @if($value->payment_type==1 && $value->bankTransfer!=null)
                                                             @php $bank_transfer = $value->bankTransfer @endphp
                                                             <a class="btn btn-sm btn-success show-tooltip"
                                                                 href='{{ url("bank_transfer/$bank_transfer->id") }}'

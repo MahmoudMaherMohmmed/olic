@@ -265,7 +265,14 @@ return [
         'reservations' => 'Reservations',
         'create_reservation' => 'Add New Reservation',
         'client_name' => 'Client Name',
-        'trip_name' => 'Trip Name',
+        'technician_name' => 'technician_name',
+        'date' => 'Date',
+        'time' => 'Time',
+        'total_price' => 'Total Price',
+        'payment_type' => 'Payment Type',
+        'created_at' => 'Created At',
+        'status' => 'Status',
+        'update_reservation' => 'Update Reservation',
     ],
 
     'clients'=>[

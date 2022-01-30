@@ -370,6 +370,21 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </ul>
 
                     <ul class="nav nav-list">
+                        <li id="reservation">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-tasks"></i>
+                                <span>@lang('messages.reservations.reservations')</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li id="reservation_index"><a href="{{url('reservation')}}">@lang('messages.reservations.reservations')</a></li>
+                                <!-- <li id="reservation_create"><a href="{{url('reservation/create')}}">@lang('messages.reservations.create_reservation')</a></li> -->
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav nav-list">
                         <li id="bank_transfer">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-bookmark"></i>
