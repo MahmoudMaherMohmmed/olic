@@ -10,7 +10,7 @@ class Reservation extends Model
     use HasFactory;
 
     protected $table = 'reservations';
-    protected $fillable = ['client_id','technician_id', 'date', 'from', 'to', 'coupon', 'total_price', 'payment_type', 'status'];
+    protected $fillable = ['client_id','technician_id', 'car_id', 'lat', 'lng', 'date', 'from', 'to', 'coupon', 'total_price', 'payment_type', 'status'];
 
     public function client()
     {
@@ -30,5 +30,10 @@ class Reservation extends Model
     public function items()
     {
         return $this->hasMany(ReservationItem::class);
+    }
+
+    public function car()
+    {
+        return $this->belongsTo(ClientCar::class);
     }
 }

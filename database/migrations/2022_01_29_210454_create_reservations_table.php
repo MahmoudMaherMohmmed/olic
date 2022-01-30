@@ -17,6 +17,9 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->bigInteger('client_id')->unsigned();
             $table->bigInteger('technician_id')->unsigned();
+            $table->bigInteger('car_id')->unsigned();
+            $table->string('lat');
+            $table->string('lng');
             $table->string('date');
             $table->string('from');
             $table->string('to');
@@ -27,6 +30,7 @@ class CreateReservationsTable extends Migration
 
             $table->foreign('client_id')->references('id')->on('clients')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->foreign('technician_id')->references('id')->on('technicians')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('car_id')->references('id')->on('client_cars')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

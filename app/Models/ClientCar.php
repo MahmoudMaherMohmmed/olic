@@ -26,4 +26,9 @@ class ClientCar extends Model
     {
         return $this->belongsTo(CarCylinder::class);
     }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }

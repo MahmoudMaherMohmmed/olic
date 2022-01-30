@@ -32,6 +32,9 @@ class ReservationController extends Controller
     public function makeReservation(Request $request){
         $Validated = Validator::make($request->all(), [
             'technician_id' => 'required',
+            'car_id' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
             'date' => 'required',
             'time' => 'required',
             'total_price' => 'required',
@@ -45,7 +48,7 @@ class ReservationController extends Controller
 
         $reservation = new Reservation();
         $reservation->client_id = $request->user()->id;
-        $reservation->fill($request->only('technician_id', 'total_price', 'age', 'payment_type'));
+        $reservation->fill($request->only('technician_id', 'car_id', 'lat', 'lng', 'total_price', 'age', 'payment_type'));
         $reservation->date = $this->formatDate($request->date);
         $reservation->from = $request->time;
         $reservation->to = date('H:i A', (strtotime($request->time) + 60*60) );
