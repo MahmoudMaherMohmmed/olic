@@ -113,6 +113,17 @@ class ReservationController extends Controller
         return response()->json(['reservations' => $reservations_array], 200);
     }
 
+    public function show($id){
+        $reservation_details = [];
+        $reservation = Reservation::where('id', $id)->first();
+
+        if(isset($reservation) && $reservation!=null){
+            $reservation_details = $this->formatReservation($reservation, app()->getLocale());
+        }
+
+        return response()->json(['reservation' => $reservation_details], 200);
+    }
+
     private function formatReservation($reservation, $lang){
         $reservation = [
             'order_id' => '#'.$reservation->id,
