@@ -48,7 +48,7 @@ class AppointmentController extends Controller
             $tNow = $tStart;
 
             while($tNow <= $tEnd){
-                array_push($hours, [date('H:i A',$tNow)=>1]);
+                array_push($hours, [date('H:i A',$tNow)=>1, 'technician_id'=>1]);
                 $tNow = strtotime('+60 minutes',$tNow);
             }
         }
