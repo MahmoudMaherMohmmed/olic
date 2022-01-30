@@ -10,15 +10,18 @@
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.reservations.trip_name') </label>
+    <label class="col-sm-3 col-lg-2 control-label"> @lang('messages.reservations.date') <span class="text-danger">*</span></label>
     <div class="col-sm-9 col-lg-10 controls">
-      <select class="form-control chosen-rtl" name="trip_id" required {{$reservation!=null ? 'disabled' : ''}}>
-        @foreach($trips as $trip)
-        <option value="{{$trip->id}}" {{$reservation && $reservation->trip_id==$trip->id ? 'selected' : '' }}>{{$trip->name}}</option>
-        @endforeach
-      </select>
+        <input type="text" class="form-control" name="date" value="@if ($reservation) {!! $reservation->date !!} @endif" />
     </div>
-</div>
+</div> 
+
+<div class="form-group">
+    <label class="col-sm-3 col-lg-2 control-label"> @lang('messages.reservations.time') <span class="text-danger">*</span></label>
+    <div class="col-sm-9 col-lg-10 controls">
+        <input type="text" class="form-control" name="from" value="@if ($reservation) {!! $reservation->from !!} @endif" />
+    </div>
+</div> 
 
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.status.status')<span class="text-danger">*</span></label>

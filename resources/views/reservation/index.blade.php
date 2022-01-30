@@ -15,11 +15,11 @@
                         <div class="box-content">
                             <div class="btn-toolbar pull-right">
                                 <div class="btn-group">
-                                    @if (get_action_icons('reservation/create', 'get'))
+                                    <!-- @if (get_action_icons('reservation/create', 'get'))
                                         <a class="btn btn-circle show-tooltip" title=""
                                             href="{{ url('reservation/create') }}" data-original-title="Add new record"><i
                                                 class="fa fa-plus"></i></a>
-                                    @endif
+                                    @endif -->
                                     <?php $table_name = 'reservations';
                                     // pass table name to delete all function
                                     // if the current route exists in delete all table flags it will appear in view

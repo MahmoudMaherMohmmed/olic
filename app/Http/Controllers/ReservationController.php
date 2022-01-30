@@ -37,10 +37,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        $reservation = null;
-        $clients = Client::all();
-        $trips = Trip::all();
-        return view('reservation.form', compact('reservation', 'clients', 'trips'));
+        return back();
     }
 
     /**
@@ -51,24 +48,7 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'client_id' => 'required',
-            'trip_id' => 'required',
-            'status' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
-
-        $reservation = new Reservation();
-        $reservation->fill($request->all());
-        $reservation->save();
-
-        $this->sendNotification($reservation);
-
-        \Session::flash('success', trans('messages.Added Successfully'));
-        return redirect('/reservation');
+        return back();
     }
 
     /**
@@ -93,8 +73,7 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::findOrFail($id);
         $clients = Client::all();
-        $trips = Trip::all();
-        return view('reservation.form', compact('reservation', 'clients', 'trips'));
+        return view('reservation.form', compact('reservation', 'clients'));
     }
 
     /**
