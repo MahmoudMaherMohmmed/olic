@@ -122,4 +122,25 @@ class CarController extends Controller
         
         return response()->json(['messaage' => trans('api.add_new_car')], 200);
     }
+
+    public function deleteClientCars(Request $request){
+        $client = $request->user();
+
+        $Validated = Validator::make($request->all(), [
+            'id'      => 'required',
+        ]);
+
+        if($Validated->fails())
+            return response()->json($Validated->messages(), 403);
+
+        $client_car = ClientCar::where('id', $request->id)->first();
+        if(isset($client_car) && $client_car!=null){
+            $client_car->delete();
+
+            return response()->json(['messaage' => trans('api.delete_car')], 200);
+        }else{
+            return response()->json(['messaage' => trans('api.not_found_car')], 403);
+        }
+
+    }
 }

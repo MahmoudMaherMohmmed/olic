@@ -11,6 +11,8 @@ return [
     'notification_deleted_successfully' => 'Notification deleted successfully.',
     'notification_is_not_found' => 'Notification is not found.',
     'add_new_car' => 'New Car Added Successfully.',
+    'delete_car' => 'Your Car Deleted Successfully.',
+    'not_found_car' => 'This car isn\' in our Sysem.',
     'service_location_not_available' => 'We apologize to you! Please note that the service is not available in this area',
     'service_location_available' => 'The service is available in your area. Thank you for choosing us! Your request will now be completed',
     'coupon_not_found' => 'This coupon is not available',

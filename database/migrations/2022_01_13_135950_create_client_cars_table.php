@@ -21,6 +21,7 @@ class CreateClientCarsTable extends Migration
             $table->integer('manufacture_year');
             $table->integer('status')->default(1)->comment('0=>Not Avaliable | 1=>Undr Review | 2=>Approved');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('client_id')->references('id')->on('clients')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->foreign('model_id')->references('id')->on('car_models')->onUpdate('CASCADE')->onDelete('CASCADE');
