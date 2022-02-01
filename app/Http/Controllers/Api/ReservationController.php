@@ -134,6 +134,7 @@ class ReservationController extends Controller
             'date' => $reservation->date,
             'time' => $reservation->from,
             'total_price' => $reservation->total_price,
+            'technician_phone' => $reservation->technician->phone,
             'coupon' => $reservation->coupon,
             'status' => $reservation->status,
             'car' => $this->reservationCar($reservation->car, $lang),
