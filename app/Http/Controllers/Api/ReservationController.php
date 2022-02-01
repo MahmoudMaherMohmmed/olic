@@ -129,19 +129,31 @@ class ReservationController extends Controller
 
     private function formatReservation($reservation, $lang){
         $reservation = [
-            'order_id' => '#'.$reservation->id,
+            'order_id' => $reservation->id,
             'technician' => $reservation->technician->name,
             'date' => $reservation->date,
             'time' => $reservation->from,
             'total_price' => $reservation->total_price,
             'coupon' => $reservation->coupon,
-            'services' => $this->ReservationServices($reservation->items, $lang),
+            'status' => $reservation->status,
+            'car' => $this->reservationCar($reservation->car, $lang),
+            'services' => $this->reservationServices($reservation->items, $lang),
         ];
 
         return $reservation;
     }
 
-    private function ReservationServices($services, $lang){
+    private function reservationCar($car, $lang){
+        return [
+            'id' => $car->id,
+            'brand' => $car->model->brand->getTranslation('name', $lang),
+            'model' => $car->model->getTranslation('name', $lang),
+            'cylinder' => $car->cylinder->getTranslation('name', $lang),
+            'manufacture_year' => $car->manufacture_year,
+        ];
+    }
+
+    private function reservationServices($services, $lang){
         $services_array = [];
 
         foreach($services as $service){
