@@ -137,7 +137,7 @@ class ReservationController extends Controller
             'technician_phone' => $reservation->technician->phone,
             'coupon' => $reservation->coupon,
             'status' => $reservation->status,
-            'car' => $this->reservationCar($reservation->car, $lang),
+            'car' => $this->reservationCar($reservation->car()->withTrashed()->first(), $lang),
             'services' => $this->reservationServices($reservation->items, $lang),
         ];
 
