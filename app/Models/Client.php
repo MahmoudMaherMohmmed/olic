@@ -21,10 +21,13 @@ class Client extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'first_name',
+        'last_name',
         'phone',
+        'email',
+        'image',
+        'status',
+        'activation_code',
         'device_token',
     ];
 
@@ -34,7 +37,6 @@ class Client extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -46,11 +48,6 @@ class Client extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = Hash::make($value);
-    }
 
     public function reservations()
     {

@@ -18,4 +18,6 @@ return [
     'coupon_not_found' => 'This coupon is not available',
     'appointment_reserved' => 'appointment reserved successfully.',
     'error_occurred' => 'An error occurred.',
+    'verify_code' => 'Your account has been successfully activated.',
+    'wrong_activation_code' => 'Wrong activation code has been entered',
 ];

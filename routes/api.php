@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('localization')->group(function () {
-    Route::post('login', 'Api\ClientController@login');
-    Route::post('register', 'Api\ClientController@register');
+    Route::post('auth', 'Api\ClientController@auth');
     Route::get('olic', 'Api\AppController@olic');
     Route::get('terms_and_conditions', 'Api\AppController@TermsAndConditions');
     Route::post('contact_email', 'Api\AppController@contactMail');
@@ -45,10 +44,11 @@ Route::middleware('localization')->group(function () {
     Route::post('coupon/apply', 'Api\ServiceController@applyCoupon');
 
     Route::middleware('auth:api')->group(function () {
+        Route::post('auth/verify_code', 'Api\ClientController@verifyCode');
+        Route::post('auth/complete', 'Api\ClientController@completeAuth');
         Route::get('profile', 'Api\ClientController@profile');
         Route::post('profile/update', 'Api\ClientController@UpdateProfile');
         Route::post('profile/update/image', 'Api\ClientController@updateProfileImage');
-        Route::post('profile/update_password', 'Api\ClientController@updatePassword');
         Route::post('logout', 'Api\ClientController@logout');
         Route::get('notifications', 'Api\NotificationController@index');
         Route::post('notification/delete', 'Api\NotificationController@delete');

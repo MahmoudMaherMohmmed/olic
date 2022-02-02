@@ -18,4 +18,6 @@ return [
     'coupon_not_found' => 'هذا الكوبون غير موجود',
     'appointment_reserved' => 'تم حجز الموعد بنجاح',
     'error_occurred' => 'حدث خطاء اثناء عملية الحفظ',
+    'verify_code' => 'تم تفعيل الحساب الخاص بك بنجاح',
+    'wrong_activation_code' => 'تم إدخال رمز التفعيل الخاطئ',
 ];
