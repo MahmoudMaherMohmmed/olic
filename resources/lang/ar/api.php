@@ -20,4 +20,6 @@ return [
     'error_occurred' => 'حدث خطاء اثناء عملية الحفظ',
     'verify_code' => 'تم تفعيل الحساب الخاص بك بنجاح',
     'wrong_activation_code' => 'تم إدخال رمز التفعيل الخاطئ',
+    'cancel_reservation' => 'تم الغاء الحجز بنجاح',
+    'reservation_not_found' => 'هذاالحجز غير موجود فى النظام لدينا',
 ];

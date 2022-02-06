@@ -58,5 +58,6 @@ Route::middleware('localization')->group(function () {
         Route::post('reservation/make', 'Api\ReservationController@makeReservation');
         Route::get('client/reservations', 'Api\ReservationController@clientReservations');
         Route::get('reservation/{id}/show', 'Api\ReservationController@show');
+        Route::get('reservation/{id}/cancel', 'Api\ReservationController@cancel');
     });
 });

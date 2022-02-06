@@ -188,6 +188,18 @@ class ReservationController extends Controller
         return $services_array;
     }
 
+    public function cancel($id){
+        $reservation = Reservation::where('id', $id)->first();
+        if(isset($reservation) && $reservation!=null){
+            $reservation->status = 0;
+            $reservation->save();
+
+            return response()->json(['message' => trans('api.cancel_reservation')], 200);
+        }else{
+            return response()->json(['message' => trans('api.reservation_not_found')], 403);
+        }
+    }
+
     /**
      * handle image file that return file path
      * @param File $file
