@@ -18,6 +18,7 @@ class CreateReservationItemsTable extends Migration
             $table->bigInteger('reservation_id')->unsigned();
             $table->integer('service_id');
             $table->string('type');
+            $table->integer('count')->default(1);
             $table->timestamps();
 
             $table->foreign('reservation_id')->references('id')->on('reservations')->onUpdate('CASCADE')->onDelete('CASCADE');

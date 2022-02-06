@@ -99,6 +99,9 @@ class ReservationController extends Controller
                 $service_item->reservation_id = $reservation_id;
                 $service_item->service_id = explode('_', $service)[0];
                 $service_item->type = explode('_', $service)[1];
+                if(isset(explode('_', $service)[2]) && explode('_', $service)[2] !=null){
+                    $service_item->count = explode('_', $service)[2];
+                }
                 $service_item->save();
             }
         }
@@ -159,7 +162,7 @@ class ReservationController extends Controller
             'coupon' => $reservation->coupon,
             'status' => $reservation->status,
             'car' => $this->reservationCar($reservation->car()->withTrashed()->first(), $lang),
-            'services' => $this->reservationServices($reservation->items, $lang),
+            'services' => $this->reservationServices($reservation, $lang),
         ];
 
         return $reservation;
@@ -175,32 +178,35 @@ class ReservationController extends Controller
         ];
     }
 
-    private function reservationServices($services, $lang){
+    private function reservationServices($reservation, $lang){
         $services_array = [];
 
-        foreach($services as $service){
-            if($service->type == 'service'){
-                $service = Oil::where('id', $service->service_id)->first();
+        foreach($reservation->items as $item){
+            if($item->type == 'service'){
+                $service = Oil::where('id', $item->service_id)->first();
                 if(isset($service) && $service!=null){
                     array_push($services_array, [
                         'name' => $service->getTranslation('name', $lang),
                         'price' => $service->price,
+                        'count' => $item->count,
                     ]);
                 }
-            }elseif($service->type == 'additional'){
-                $service = AdditionalService::where('id', $service->service_id)->first();
+            }elseif($item->type == 'additional'){
+                $service = AdditionalService::where('id', $item->service_id)->first();
                 if(isset($service) && $service!=null){
                     array_push($services_array, [
                         'name' => $service->getTranslation('name', $lang),
                         'price' => $service->price,
+                        'count' => $item->count,
                     ]);
                 }
-            }elseif($service->type == 'free'){
-                $service = FreeService::where('id', $service->service_id)->first();
+            }elseif($item->type == 'free'){
+                $service = FreeService::where('id', $item->service_id)->first();
                 if(isset($service) && $service!=null){
                     array_push($services_array, [
                         'name' => $service->getTranslation('name', $lang),
                         'price' => 0,
+                        'count' => $item->count,
                     ]);
                 }
             }
