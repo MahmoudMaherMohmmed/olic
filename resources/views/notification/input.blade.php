@@ -5,7 +5,7 @@
         <option value="0">@lang('messages.notifications.all')</option>
         @foreach($clients as $client)
             @if($client->first_name!=null && $client->last_name !=null)
-                <option value="{{$client->id}}" {{$notification && $notification->client_id==$client->id ? 'selected' : '' }}>{{$value->client->first_name.' '.$value->client->last_name}}</option>
+                <option value="{{$client->id}}" {{$notification && $notification->client_id==$client->id ? 'selected' : '' }}>{{$client->first_name.' '.$client->last_name}}</option>
             @endif
         @endforeach
       </select>
