@@ -106,7 +106,7 @@ class ReservationController extends Controller
         $client_id = $request->user()->id;
         $reservations_array = [];
 
-        $reservations = Reservation::where('client_id', $client_id)->get();
+        $reservations = Reservation::where('client_id', $client_id)->latest()->get();
         if(isset($reservations) && $reservations!=null){
             foreach($reservations as $reservation){
                 array_push($reservations_array, $this->formatReservation($reservation, app()->getLocale()));
