@@ -65,6 +65,27 @@ class ReservationController extends Controller
         }  
     }
 
+    public function rescheduleReservation(Request $request){
+        $Validated = Validator::make($request->all(), [
+            'reservation_id' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+        ]);
+
+        if($Validated->fails())
+            return response()->json($Validated->messages(), 403);
+
+        $reservation = Reservation::where('id', $request->reservation_id)->first();
+        $reservation->date = $this->formatDate($request->date);
+        $reservation->from = $request->time;
+        $reservation->to = date('H:i A', (strtotime($request->time) + 60*60) );
+        if($reservation->save()){
+            return response()->json(['message' => trans('api.appointment_reschedule')], 200);
+        }else{
+            return response()->json(['message' => trans('api.error_occurred')], 403);
+        }  
+    }
+
     private function formatDate($date){
         return Carbon::createFromFormat('Y M d', $date)->format('Y-m-d');
     }

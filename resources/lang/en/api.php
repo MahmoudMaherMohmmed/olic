@@ -22,4 +22,5 @@ return [
     'wrong_activation_code' => 'Wrong activation code has been entered',
     'cancel_reservation' => 'Reservation has been canceled successfully.',
     'reservation_not_found' => 'This reservation is not available in our system.',
+    'appointment_reschedule' => 'appointment rescheduled successfully.',
 ];
