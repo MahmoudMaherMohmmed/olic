@@ -26,6 +26,7 @@ class CreateReservationsTable extends Migration
             $table->string('coupon')->nullable();
             $table->string('total_price');
             $table->integer('payment_type')->default(0)->comment('0=>cash | 1=>bank transfer');
+            $table->text('transaction_id')->nullable();
             $table->integer('status')->default(1)->comment('0=>unacceptable | 1=>Pending | 2=>approved');
 
             $table->foreign('client_id')->references('id')->on('clients')->onUpdate('CASCADE')->onDelete('CASCADE');

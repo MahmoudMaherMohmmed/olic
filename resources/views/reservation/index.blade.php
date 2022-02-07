@@ -73,20 +73,19 @@
                                                                 href='{{ url("reservation/$value->id/edit") }}'
                                                                 title="Edit"><i class="fa fa-edit"></i></a>
                                                         @endif
-                                                        @if($value->payment_type==1 && $value->bankTransfer!=null)
-                                                            @php $bank_transfer = $value->bankTransfer @endphp
+                                                        @if($value->payment_type==1)
                                                             <a class="btn btn-sm btn-success show-tooltip"
-                                                                href='{{ url("bank_transfer/$bank_transfer->id") }}'
+                                                                href='{{ url("reservation/$value->id") }}'
                                                                 title="View"><i class="fa fa-eye"></i></a>
                                                         @endif
-                                                        <form action="{{ route('reservation.destroy', $value->id) }}"
+                                                        <!-- <form action="{{ route('reservation.destroy', $value->id) }}"
                                                             method="POST" style="display: initial;">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button type="submit" class="btn btn-sm btn-danger"
                                                                 style="height: 28px;"><i
                                                                     class="fa fa-trash"></i></button>
-                                                        </form>
+                                                        </form> -->
                                                     </div>
                                                 </td>
                                             </tr>

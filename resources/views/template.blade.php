@@ -384,7 +384,7 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                         </li>
                     </ul>
 
-                    <ul class="nav nav-list">
+                    <!-- <ul class="nav nav-list">
                         <li id="bank_transfer">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-bookmark"></i>
@@ -411,7 +411,7 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                                 <li id="bank_create"><a href="{{url('bank/create')}}">@lang('messages.banks.create_bank')</a></li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> -->
 
                     <ul class="nav nav-list">
                         <li id="slider">

@@ -269,6 +269,7 @@ return [
         'created_at' => 'تاريخ اضافة الطلب',
         'status' => 'حالة الطلب',
         'update_reservation' => 'تعديل الحجز',
+        'transaction_id' => 'رقم المعاملة',
     ],
 
     'clients'=>[

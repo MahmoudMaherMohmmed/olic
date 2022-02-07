@@ -273,6 +273,7 @@ return [
         'created_at' => 'Created At',
         'status' => 'Status',
         'update_reservation' => 'Update Reservation',
+        'transaction_id' => 'Transaction ID',
     ],
 
     'clients'=>[
