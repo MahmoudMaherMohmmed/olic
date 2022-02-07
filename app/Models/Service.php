@@ -12,7 +12,7 @@ class Service extends Model
     use Translatable;  
 
     protected $table = 'services';
-    protected $fillable = ['title', 'description', 'image'];
+    protected $fillable = ['title', 'description', 'price', 'image'];
 
     public function oilTypes()
     {

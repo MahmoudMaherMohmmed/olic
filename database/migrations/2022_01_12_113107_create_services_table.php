@@ -17,6 +17,7 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->integer('price');
 			$table->string('image');
             $table->timestamps();
         });

@@ -15,11 +15,11 @@
                         <div class="box-content">
                             <div class="btn-toolbar pull-right">
                                 <div class="btn-group">
-                                    @if (get_action_icons('oil_type/create', 'get'))
+                                    <!-- @if (get_action_icons('oil_type/create', 'get'))
                                         <a class="btn btn-circle show-tooltip" title=""
                                             href="{{ url('oil_type/create') }}" data-original-title="Add new record"><i
                                                 class="fa fa-plus"></i></a>
-                                    @endif
+                                    @endif -->
                                     <?php $table_name = 'oil_types';
                                     // pass table name to delete all function
                                     // if the current route exists in delete all table flags it will appear in view
@@ -62,7 +62,7 @@
                                                                 href='{{ url("oil_type/$value->id/edit") }}'
                                                                 title="Edit"><i class="fa fa-edit"></i></a>
                                                         @endif
-                                                        @if (get_action_icons('oil_type/{id}/delete', 'get'))
+                                                        <!-- @if (get_action_icons('oil_type/{id}/delete', 'get'))
                                                             <form action="{{ route('oil_type.destroy', $value->id) }}"
                                                                 method="POST" style="display: initial;">
                                                                 @method('DELETE')
@@ -71,7 +71,7 @@
                                                                     style="height: 28px;"><i
                                                                         class="fa fa-trash"></i></button>
                                                             </form>
-                                                        @endif
+                                                        @endif -->
                                                     </div>
                                                 </td>
                                             </tr>

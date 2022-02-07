@@ -15,11 +15,11 @@
                         <div class="box-content">
                             <div class="btn-toolbar pull-right">
                                 <div class="btn-group">
-                                    @if (get_action_icons('service/create', 'get'))
+                                    <!-- @if (get_action_icons('service/create', 'get'))
                                         <a class="btn btn-circle show-tooltip" title=""
                                             href="{{ url('service/create') }}" data-original-title="Add new record"><i
                                                 class="fa fa-plus"></i></a>
-                                    @endif
+                                    @endif -->
                                     <?php $table_name = 'services';
                                     // pass table name to delete all function
                                     // if the current route exists in delete all table flags it will appear in view
@@ -36,6 +36,7 @@
                                             <th style="width:18px"><input type="checkbox" id="check_all" data-table="{{ $table_name }}"></th>
                                             <th>id</th>
                                             <th>@lang('messages.name')</th>
+                                            <th>@lang('messages.services.price')</th>
                                             <th>@lang('messages.Image.Image')</th>
                                             <th>@lang('messages.action')</th>
                                         </tr>
@@ -52,6 +53,7 @@
                                                             {{ $value->getTranslation('name', $language->short_code) }}</li>
                                                     @endforeach
                                                 </td>
+                                                <td>{{ $value->price }}</td>
                                                 <td>
                                                     @if ($value->image)
                                                         <img class=" img-circle" width="100px" height="100px"
@@ -68,7 +70,7 @@
                                                                 href='{{ url("service/$value->id/edit") }}'
                                                                 title="Edit"><i class="fa fa-edit"></i></a>
                                                         @endif
-                                                        @if (get_action_icons('service/{id}/delete', 'get'))
+                                                        <!-- @if (get_action_icons('service/{id}/delete', 'get'))
                                                             <form action="{{ route('service.destroy', $value->id) }}"
                                                                 method="POST" style="display: initial;">
                                                                 @method('DELETE')
@@ -77,7 +79,7 @@
                                                                     style="height: 28px;"><i
                                                                         class="fa fa-trash"></i></button>
                                                             </form>
-                                                        @endif
+                                                        @endif -->
                                                     </div>
                                                 </td>
                                             </tr>
