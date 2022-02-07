@@ -8,6 +8,7 @@ use App\Models\ReservationItem;
 use App\Models\Bank;
 use App\Models\BankTransfer;
 use App\Models\Oil;
+use App\Models\Service;
 use App\Models\FreeService;
 use App\Models\AdditionalService;
 use Illuminate\Http\Request;
@@ -40,7 +41,6 @@ class ReservationController extends Controller
             'total_price' => 'required',
             'services' => 'required',
             'payment_type' => 'required',
-            'image'      => 'max:65536'
         ]);
 
         if($Validated->fails())
@@ -48,16 +48,12 @@ class ReservationController extends Controller
 
         $reservation = new Reservation();
         $reservation->client_id = $request->user()->id;
-        $reservation->fill($request->only('technician_id', 'car_id', 'lat', 'lng', 'total_price', 'age', 'payment_type'));
+        $reservation->fill($request->only('technician_id', 'car_id', 'lat', 'lng', 'total_price', 'age', 'payment_type', 'transaction_id'));
         $reservation->date = $this->formatDate($request->date);
         $reservation->from = $request->time;
         $reservation->to = date('H:i A', (strtotime($request->time) + 60*60) );
         if($reservation->save()){
             $this->saveServices($request->services, $reservation->id);
-
-            if($reservation->payment_type == 1){
-                $this->saveBankTransfer($request, $reservation->id);
-            }
 
             return response()->json(['message' => trans('api.appointment_reserved')], 200);
         }else{
@@ -104,23 +100,6 @@ class ReservationController extends Controller
                 }
                 $service_item->save();
             }
-        }
-
-        return true;
-    }
-
-    private function saveBankTransfer($request, $reservation_id){
-        $bank = Bank::where('id', $request->bank_id)->first();
-
-        if(isset($bank) && $bank!=null){
-            $bank_transfer = New BankTransfer();
-            $bank_transfer->reservation_id = $reservation_id;
-            $bank_transfer->bank_name = $bank->name;
-            $bank_transfer->bank_account_name = $bank->account_name;
-            $bank_transfer->bank_account_number = $bank->account_number;
-            $bank_transfer->IBAN = $bank->IBAN;
-            $bank_transfer->image = $this->handleFile($request['image']);
-            $bank_transfer->save();
         }
 
         return true;
@@ -182,7 +161,7 @@ class ReservationController extends Controller
         $services_array = [];
 
         foreach($reservation->items as $item){
-            if($item->type == 'service'){
+            if($item->type == 'oil'){
                 $service = Oil::where('id', $item->service_id)->first();
                 if(isset($service) && $service!=null){
                     array_push($services_array, [
@@ -206,6 +185,15 @@ class ReservationController extends Controller
                     array_push($services_array, [
                         'name' => $service->getTranslation('name', $lang),
                         'price' => 0,
+                        'count' => $item->count,
+                    ]);
+                }
+            }elseif($item->type == 'service'){
+                $service = Service::where('id', $item->service_id)->first();
+                if(isset($service) && $service!=null){
+                    array_push($services_array, [
+                        'name' => $service->getTranslation('name', $lang),
+                        'price' => $service->price,
                         'count' => $item->count,
                     ]);
                 }
