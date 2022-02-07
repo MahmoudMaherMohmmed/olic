@@ -51,7 +51,7 @@
                                                 <td><input type="checkbox" name="selected_rows[]" value="{{ $value->id }}" class="roles select_all_template">
                                                 </td>
                                                 <td>{{ $value->id }}</td>
-                                                <td> {{ $value->client->name }} </td>
+                                                <td> {{ $value->client->first_name . ' ' . $value->client->first_name}} </td>
                                                 <td> {{ $value->technician->name }} </td>
                                                 <td> {{ $value->date }} </td>
                                                 <td> {{ $value->total_price }} </td>
