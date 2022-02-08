@@ -54,6 +54,7 @@ class OilController extends Controller
                 'id' => $type->id,
                 'name' => $type->getTranslation('name', $lang),
                 'description' => $type->getTranslation('description', $lang),
+                'service_id' => $type->service->id,
                 'service_price' => $type->service->price,
             ]);
         }
