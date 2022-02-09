@@ -55,7 +55,7 @@ class ReservationController extends Controller
         if($reservation->save()){
             $this->saveServices($request->services, $reservation->id);
 
-            return response()->json(['message' => trans('api.appointment_reserved')], 200);
+            return response()->json(['message' => trans('api.appointment_reserved'), 'reservation' => $this->formatReservation($reservation, app()->getLocale())], 200);
         }else{
             return response()->json(['message' => trans('api.error_occurred')], 403);
         }  
