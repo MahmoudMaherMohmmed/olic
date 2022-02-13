@@ -298,3 +298,78 @@ function sendNotification($device_token, $message)
     return $response;
 }
 
+
+//////////////////////////////////////////////////////
+//  دالة إرسال الرسالة
+//////////////////////////////////////////////////////
+
+////////////ملاحظة : لابد من ارسال بعد ساعة اذا كان (نص الرسالة ، ورقم الجوال ، واسم المرسل ) هو نفسه //////////////
+////////////ملاحظة : يتم الإرسال بإسم المرسل المعتمد في حسابك ولا يمكن الإرسال بأي اسم مرسل غير مرخص لك //////////////
+
+function sendSms($Numbers, $Message, $infos="", $xml=""){
+    // إسم المستخدم
+    $UserName="0507147449";
+
+    // كلمة المرور
+    $UserPassword="9665071";
+
+    // إسم مرسل مسجل سابقا في حسابك ويكون بالإنجليزية ولا يتجاوز 11 رقم أو حرف أو يكون رقمك ولا يتجاوز 15 رقم
+    $Originator="Olic";
+
+    $url = "https://mobile.net.sa/sms/gw/";
+	if(!$url || $url==""){
+		return "No URL";
+	}else{
+		$ch = curl_init(); 
+		curl_setopt($ch, CURLOPT_URL,$url);
+		curl_setopt ($ch, CURLOPT_HEADER, false);
+		curl_setopt ($ch, CURLOPT_POST, true);
+		$dataPOST = array('userName' => $UserName, 'userPassword' => $UserPassword, 'userSender' => $Originator, 'numbers' => $Numbers, 'msg' => $Message, 'By' => "standard".$infos.$xml);
+		curl_setopt ($ch, CURLOPT_POSTFIELDS, $dataPOST); 
+		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_VERBOSE, 0);  
+		curl_setopt($ch, CURLE_HTTP_NOT_FOUND,1); 
+		$SendingResult = curl_exec ($ch);
+		curl_close ($ch);  
+        
+		if($SendingResult=="1"){
+            return "تم إرسال الرسالة بنجاح";
+        }elseif($SendingResult=="1010"){
+            return "معلومات ناقصة.. اسم المستخدم أو كلمة المرور أو في محتوى الرسالة أو الرقم";
+        }elseif($SendingResult=="1020"){
+            return "بيانات الدخول خاطئة";
+        }elseif($SendingResult=="1030"){
+            return "نفس الرسالة مع نفس الاتجاه توجد في الملحق، انتظر عشر ثواني قبل إعادة إرسالها";
+        }elseif($SendingResult=="1040"){
+            return "حروف غير معترف بها ";
+        }elseif($SendingResult=="1050"){
+            return "الرسالة فارغة، السبب:الانتقاء قد سبب حذف محتوى الرسالة";
+        }elseif($SendingResult=="1060"){
+            return "اعتماد غير كافي لعميلة الإرسال";
+        }elseif($SendingResult=="1070"){
+            return "رصيدك 0 ، غير كافي لعملية الإرسال";
+        }elseif($SendingResult=="1080"){
+            return "رسالة غير مرسلة ، خطأ في عملية إرسال رسالة";
+        }elseif($SendingResult=="1090"){
+            return "تكرير عملية الانتقاء أنتج الرسالة";
+        }elseif($SendingResult=="1100"){
+            return "عذرا ، لم يتم إرسال الرسالة. حاول في وقت لاحق";
+        }elseif($SendingResult=="1110"){
+            return "عذرا، هناك اسم مرسل خاطئ ثم استعماله، حاول من جديد تصحيح الاسم";
+        }elseif($SendingResult=="1120"){
+            return "عذرا ، هذا البلد الذي تحاول الإرسال له لا تشمله شبكتنا";
+        }elseif($SendingResult=="1130"){
+            return "عذرا، راجع المشرف على شبكاتنا باعتبار الشبكة المحددة في حسابكم";
+        }elseif($SendingResult=="1140"){
+            return "عذرا ، تجاوزت الحد الأقصى لأجزاء الرسائل. حاول إرسال عدد أقل من الأجزاء";
+        }elseif($SendingResult=="1150"){
+            return "هذه الرسالة مكررة بنفس رقم الجوال واسم المرسل ونص الرسالة";
+        }elseif($SendingResult=="1160"){
+            return "هناك مشكلة في مدخلات تاريخ وتوقيت الإرسال اللاحق";
+        }else{
+            return $SendingResult;
+        }
+	}
+}
+

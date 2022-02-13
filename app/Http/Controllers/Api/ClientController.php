@@ -38,6 +38,8 @@ class ClientController extends Controller
             $client = Client::create( array_merge($request->all(), ['activation_code' => random_int(1000, 9999)]) );
         }
 
+        $client_activation_code = $client->activation_code.' : '.'كود التفعيل';
+        sendSms($client->phone, $client->activation_code);
         $token = $client->createToken('API')->accessToken;
         return response(['token' => $token, 'user' => $this->formatUser($client)], 200);
     }

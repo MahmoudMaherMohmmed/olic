@@ -23,4 +23,5 @@ return [
     'cancel_reservation' => 'تم الغاء الحجز بنجاح',
     'reservation_not_found' => 'هذاالحجز غير موجود فى النظام لدينا',
     'appointment_reschedule' => 'تم تعديل موعد الحجز بنجاح',
+    'service_price' => 'سعر الخدمة',
 ];

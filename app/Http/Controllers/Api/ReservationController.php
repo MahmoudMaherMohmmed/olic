@@ -192,7 +192,7 @@ class ReservationController extends Controller
                 $service = Service::where('id', $item->service_id)->first();
                 if(isset($service) && $service!=null){
                     array_push($services_array, [
-                        'name' => $service->getTranslation('name', $lang),
+                        'name' => trans('api.service_price'),
                         'price' => $service->price,
                         'count' => $item->count,
                     ]);
