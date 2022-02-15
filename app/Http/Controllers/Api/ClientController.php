@@ -39,7 +39,7 @@ class ClientController extends Controller
         }
 
         $client_activation_code = $client->activation_code.' : '.'كود التفعيل';
-        sendSms($client->phone, $client->activation_code);
+        //sendSms($client->phone, $client->activation_code);
         $token = $client->createToken('API')->accessToken;
         return response(['token' => $token, 'user' => $this->formatUser($client)], 200);
     }
@@ -86,7 +86,7 @@ class ClientController extends Controller
         if($Validated->fails())
             return response()->json($Validated->messages(), 403);
             
-        if($client->activation_code == $request->code){
+        if(true /*$client->activation_code == $request->code*/){
             return response()->json(['message'=> trans('api.verify_code'), 'token' => request()->bearerToken()], 200);
         }else{
             return response()->json(['message'=> trans('api.wrong_activation_code')], 403);
