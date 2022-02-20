@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use App\Models\ClientCar;
 use App\Models\FreeService;
 use App\Models\AdditionalService;
 use App\Models\City;
@@ -20,14 +21,34 @@ class ServiceController extends Controller
         return response()->json(['services' => $services], 200);
     }
 
-    public function freeServices(){
-        $free_services = $this->formatServices(FreeService::orderBy('id', 'DESC')->get(), app()->getLocale());
+    public function freeServices($car_id){
+        $free_services = [];
+        $car = ClientCar::where('id', $car_id)->first();
+        if(isset($car) && $car!=null){
+            $free_services_unformated = FreeService::where('model_id', $car->model_id)
+                ->where('cylinder_id', $car->cylinder_id)
+                ->where('manufacture_year', $car->manufacture_year)
+                ->orderBy('id', 'DESC')
+                ->get();
+
+            $free_services = $this->formatServices($free_services_unformated, app()->getLocale());
+        }
 
         return response()->json(['free_services' => $free_services], 200);
     }
 
-    public function additionalServices(){
-        $additional_services = $this->formatServices(AdditionalService::orderBy('id', 'DESC')->get(), app()->getLocale(), true);
+    public function additionalServices($car_id){
+        $additional_services = [];
+        $car = ClientCar::where('id', $car_id)->first();
+
+        if(isset($car) && $car!=null){
+            $additional_services_unformated = AdditionalService::where('model_id', $car->model_id)
+                ->where('cylinder_id', $car->cylinder_id)
+                ->where('manufacture_year', $car->manufacture_year)
+                ->orderBy('id', 'DESC')
+                ->get();
+            $additional_services = $this->formatServices($additional_services_unformated, app()->getLocale(), true);
+        }
 
         return response()->json(['additional_services' => $additional_services], 200);
     }

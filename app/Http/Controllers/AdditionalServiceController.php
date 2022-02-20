@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdditionalService;
+use App\Models\CarModel;
+use App\Models\CarCylinder;
 use Illuminate\Http\Request;
 use App\Http\Repository\LanguageRepository;
 use App\Http\Services\UploaderService;
@@ -49,8 +51,10 @@ class AdditionalServiceController extends Controller
     {
         $additional_service = null;
         $languages = $this->languageRepository->all();
+        $models = CarModel::all();
+        $cylinders = CarCylinder::all();
 
-        return view('additional_service.form', compact('additional_service', 'languages'));
+        return view('additional_service.form', compact('additional_service', 'languages', 'models', 'cylinders'));
     }
 
     /**
@@ -66,6 +70,9 @@ class AdditionalServiceController extends Controller
             'name.*' => 'required|string',
             'description' => 'array',
             'price' => 'required|numeric',
+            'model_id' => 'required',
+            'cylinder_id' => 'required',
+            'manufacture_year' => 'required',
             'image' => 'required'
         ]);
 
@@ -122,7 +129,9 @@ class AdditionalServiceController extends Controller
     {
         $additional_service = AdditionalService::findOrFail($id);
         $languages = $this->languageRepository->all();
-        return view('additional_service.form', compact('additional_service', 'languages'));
+        $models = CarModel::all();
+        $cylinders = CarCylinder::all();
+        return view('additional_service.form', compact('additional_service', 'languages', 'models', 'cylinders'));
     }
 
     /**
@@ -139,6 +148,9 @@ class AdditionalServiceController extends Controller
             'name.*' => 'required|string',
             'description' => 'array',
             'price' => 'required|numeric',
+            'model_id' => 'required',
+            'cylinder_id' => 'required',
+            'manufacture_year' => 'required',
             'image' => ''
         ]);
 

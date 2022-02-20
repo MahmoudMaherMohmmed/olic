@@ -47,6 +47,39 @@
 </div>
 
 <div class="form-group">
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.car_brand')<span class="text-danger">*</span></label>
+    <div class="col-sm-9 col-lg-10 controls">
+      <select class="form-control chosen-rtl" name="model_id" required>
+        @foreach($models as $model)
+          @if($model->brand!=null)
+            <option value="{{$model->id}}" {{$free_service && $free_service->model_id==$model->id ? 'selected' : '' }}>
+              {{$model->brand->getTranslation('name', Session::get('applocale')) ." - ". $model->getTranslation('name', Session::get('applocale'))}}
+            </option>
+          @endif
+        @endforeach
+      </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.car_cylinders')<span class="text-danger">*</span></label>
+    <div class="col-sm-9 col-lg-10 controls">
+      <select class="form-control chosen-rtl" name="cylinder_id" required>
+        @foreach($cylinders as $cylinder)
+            <option value="{{$cylinder->id}}" {{$free_service && $free_service->cylinder_id==$cylinder->id ? 'selected' : '' }}>{{$cylinder->getTranslation('name', Session::get('applocale'))}}</option>
+        @endforeach
+      </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.cars.manufacture_year')<span class="text-danger">*</span></label>
+    <div class="col-sm-9 col-lg-10 controls">
+        <input type="text" class="form-control" name="manufacture_year" value="@if ($free_service) {!! $free_service->manufacture_year !!} @endif" />
+    </div>
+</div> 
+
+<div class="form-group">
     <label class="col-sm-3 col-md-2 control-label">@lang('messages.Image.Image')</label>
     <div class="col-sm-9 col-md-8 controls">
         <div class="fileupload fileupload-new" data-provides="fileupload">

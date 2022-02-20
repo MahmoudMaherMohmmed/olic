@@ -12,5 +12,5 @@ class FreeService extends Model
     use Translatable; 
 
     protected $table = 'free_services';
-    protected $fillable = ['title', 'description', 'image'];
+    protected $fillable = ['title', 'description', 'model_id', 'cylinder_id', 'manufacture_year', 'image'];
 }

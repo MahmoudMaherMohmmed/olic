@@ -12,5 +12,5 @@ class AdditionalService extends Model
     use Translatable;
 
     protected $table = 'additional_services';
-    protected $fillable = ['title', 'description', 'price', 'image'];
+    protected $fillable = ['title', 'description', 'price', 'model_id', 'cylinder_id', 'manufacture_year', 'image'];
 }

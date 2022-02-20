@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\FreeService;
+use App\Models\CarModel;
+use App\Models\CarCylinder;
 use Illuminate\Http\Request;
 use App\Http\Repository\LanguageRepository;
 use App\Http\Services\UploaderService;
-use Illuminate\Http\UploadedFile;
+use Illuminate\Http\UploadedFile; 
 use Validator;
 
 class FreeServiceController extends Controller
@@ -49,8 +51,10 @@ class FreeServiceController extends Controller
     {
         $free_service = null;
         $languages = $this->languageRepository->all();
+        $models = CarModel::all();
+        $cylinders = CarCylinder::all();
 
-        return view('free_service.form', compact('free_service', 'languages'));
+        return view('free_service.form', compact('free_service', 'languages', 'models', 'cylinders'));
     }
 
     /**
@@ -65,6 +69,9 @@ class FreeServiceController extends Controller
             'name' => 'required|array',
             'name.*' => 'required|string',
             'description' => 'array',
+            'model_id' => 'required',
+            'cylinder_id' => 'required',
+            'manufacture_year' => 'required',
             'image' => 'required'
         ]);
 
@@ -121,7 +128,9 @@ class FreeServiceController extends Controller
     {
         $free_service = FreeService::findOrFail($id);
         $languages = $this->languageRepository->all();
-        return view('free_service.form', compact('free_service', 'languages'));
+        $models = CarModel::all();
+        $cylinders = CarCylinder::all();
+        return view('free_service.form', compact('free_service', 'languages', 'models', 'cylinders'));
     }
 
     /**
@@ -137,6 +146,9 @@ class FreeServiceController extends Controller
             'name' => 'required|array',
             'name.*' => 'required|string',
             'description' => 'array',
+            'model_id' => 'required',
+            'cylinder_id' => 'required',
+            'manufacture_year' => 'required',
             'image' => ''
         ]);
 

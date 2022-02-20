@@ -32,8 +32,8 @@ Route::middleware('localization')->group(function () {
 
     //-------------------------------------------------------
     Route::get('services', 'Api\ServiceController@index');
-    Route::get('services/free', 'Api\ServiceController@freeServices');
-    Route::get('services/additional', 'Api\ServiceController@additionalServices');
+    Route::get('services/free/{car_id}', 'Api\ServiceController@freeServices');
+    Route::get('services/additional/{car_id}', 'Api\ServiceController@additionalServices');
     Route::get('cars/brands', 'Api\CarController@carsBrands');
     Route::get('cars/models/{brand_id}', 'Api\CarController@carsModels');
     Route::get('cars/cylinders', 'Api\CarController@carsCylinders');
