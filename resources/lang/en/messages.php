@@ -166,7 +166,10 @@ return [
         'message_quota' => 'Message Quota',
         'message_sent' => 'Message Sent',
         'role' => 'Role',
-        'phone' => 'Phone'
+        'phone' => 'Phone Number',
+        'technician_phone' => 'Phone Number',
+        'technician_phone_2' => 'Phone Number - Additional',
+        'client_phone' => 'Client Phone Number',
     ],
     'helps' => [
         'head' => 'How can we help you ?',

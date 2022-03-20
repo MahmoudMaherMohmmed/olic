@@ -161,7 +161,10 @@ return [
         'message_quota' => 'رصيد الرسائل',
         'message_sent' => 'الرسائل المرسله',
         'role' => 'ألدور',
-        'phone' => 'التليفون'
+        'phone' => 'رقم الجوال',
+        'technician_phone' => 'رقم الجوال',
+        'technician_phone_2' => 'رقم جوال - أضافى',
+        'client_phone' => 'رقم جوال العميل',
     ],
     'helps' => [
         'head' => 'كيف نستطيع مساعدتك ؟',

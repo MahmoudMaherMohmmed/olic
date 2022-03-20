@@ -27,7 +27,7 @@
                                 <th style="width:18px"><input type="checkbox" id="check_all" data-table="{{ $table_name }}"></th>
                                 <th>@lang('messages.name')</th>
                                 <th>@lang('messages.users.email')</th>
-                                <th>@lang('messages.users.phone')</th>
+                                <th>@lang('messages.users.client_phone')</th>
                                 <th class="visible-md visible-lg" style="width:130px">@lang('messages.action')</th>
                             </tr>
                         </thead>

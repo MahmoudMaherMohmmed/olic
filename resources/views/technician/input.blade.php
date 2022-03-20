@@ -32,17 +32,17 @@
     </div>
 @endif
 <div class="form-group">
-    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.users.phone') *</label>
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.users.technician_phone') *</label>
     <div class="col-sm-9 col-lg-10 controls">
-        <input type="text" name="phone" placeholder="@lang('messages.users.phone')" class="form-control input-lg"
+        <input type="text" name="phone" placeholder="@lang('messages.users.technician_phone')" class="form-control input-lg"
             value="{{ $technician->phone ?? old('phone') }}">
     </div>
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.users.phone') *</label>
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.users.technician_phone_2') *</label>
     <div class="col-sm-9 col-lg-10 controls">
-        <input type="text" name="phone_2" placeholder="@lang('messages.users.phone')" class="form-control input-lg"
+        <input type="text" name="phone_2" placeholder="@lang('messages.users.technician_phone_2')" class="form-control input-lg"
             value="{{ $technician->phone_2 ?? old('phone_2') }}">
     </div>
 </div>

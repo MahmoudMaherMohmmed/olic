@@ -32,9 +32,9 @@
     </div>
 @endif
 <div class="form-group">
-    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.users.phone') *</label>
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.users.client_phone') *</label>
     <div class="col-sm-9 col-lg-10 controls">
-        <input type="text" name="phone" placeholder="@lang('messages.users.phone')" class="form-control input-lg"
+        <input type="text" name="phone" placeholder="@lang('messages.users.client_phone')" class="form-control input-lg"
             value="{{ $client->phone ?? old('phone') }}">
     </div>
 </div>
