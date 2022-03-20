@@ -437,5 +437,6 @@ return [
     'technicians'=>[
         'technicians' => 'الفنيين',
         'create_technician' => 'أضافة فنى جديد',
+        'technician_details' => 'بيانات حساب الفنى',
     ],
 ];

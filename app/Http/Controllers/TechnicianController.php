@@ -101,7 +101,7 @@ class TechnicianController extends Controller
     public function show($id)
     {
         $technician = Technician::findOrFail($id);
-        return view('technician.index', compact('technician'));
+        return view('technician.show', compact('technician'));
     }
 
     /**

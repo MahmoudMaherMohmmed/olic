@@ -291,7 +291,7 @@ if (Config::get('languages')[App::getLocale()] == "English") {
                     </ul>
 
                     <ul class="nav nav-list">
-                        <li id="client">
+                        <li id="technician">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-cogs"></i>
                                 <span>@lang('messages.technicians.technicians')</span>

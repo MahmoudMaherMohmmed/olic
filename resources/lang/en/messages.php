@@ -437,5 +437,6 @@ return [
     'technicians'=>[
         'technicians' => 'Technicians',
         'create_technician' => 'Add New Technician',
+        'technician_details' => 'Technician Details',
     ],
 ];

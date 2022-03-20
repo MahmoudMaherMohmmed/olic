@@ -45,6 +45,9 @@
                                             href="{{ url('technician/' . $technician->id . '/edit') }}"
                                             data-original-title="Edit"><i class="fa fa-edit"></i></a>
                                         @endif
+                                        <a class="btn btn-sm btn-success show-tooltip"
+                                            href='{{ url("technician/$technician->id") }}'
+                                            title="View"><i class="fa fa-eye"></i></a>
                                         @if (get_action_icons('technician/{id}/delete', 'get'))
                                         <form action="{{ route('technician.destroy', $technician->id) }}"
                                             method="POST" style="display: initial;">
