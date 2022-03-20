@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use App\Models\Notification;
 use App\Models\Client;
+use App\Models\Technician;
 use App\Models\Trip;
 use Illuminate\Http\Request;
 
@@ -73,7 +74,8 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::findOrFail($id);
         $clients = Client::all();
-        return view('reservation.form', compact('reservation', 'clients'));
+        $technicians = Technician::all();
+        return view('reservation.form', compact('reservation', 'clients', 'technicians'));
     }
 
     /**
@@ -93,6 +95,10 @@ class ReservationController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
+        if($this->checkReservation($request, $id)){
+            return redirect()->back()->withErrors(['تم حجز هذا الموعد من قبل']);
+        }
+
         $reservation = Reservation::findOrFail($id);
         $reservation->fill($request->all());
         $reservation->save();
@@ -101,6 +107,16 @@ class ReservationController extends Controller
 
         \Session::flash('success', trans('messages.updated successfully'));
         return redirect('/reservation');
+    }
+
+    private function checkReservation($request, $id){
+        $reservation = Reservation::where('id', '!=', $id)
+                        ->where('technician_id', $request->technician_id)
+                        ->where('date', $request->date)
+                        ->where('from', $request->from)
+                        ->first();
+
+        return isset($reservation) && $reservation!=null ? true : false;
     }
 
     /**

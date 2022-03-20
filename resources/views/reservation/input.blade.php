@@ -17,6 +17,17 @@
 </div>
 
 <div class="form-group">
+    <label class="col-sm-3 col-lg-2 control-label">@lang('messages.reservations.technician_name') </label>
+    <div class="col-sm-9 col-lg-10 controls">
+      <select class="form-control chosen-rtl" name="technician_id" required>
+        @foreach($technicians as $technician)
+        <option value="{{$technician->id}}" {{$reservation && $reservation->technician_id==$technician->id ? 'selected' : '' }}>{{$technician->name}}</option>
+        @endforeach
+      </select>
+    </div>
+</div>
+
+<div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label"> @lang('messages.reservations.date') <span class="text-danger">*</span></label>
     <div class="col-sm-9 col-lg-10 controls">
         <input type="text" class="form-control js-datepicker" name="date" readonly="readonly" value="@if ($reservation) {!! $reservation->date !!} @endif" />
