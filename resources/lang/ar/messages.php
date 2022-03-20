@@ -261,11 +261,12 @@ return [
     'Updated Successfully' => 'تم التحديث بنجاح',
 
     'reservations'=>[
+        'id' => 'رقم الحجز',
         'reservations' => 'الحجوزات',
-        'create_reservation' => 'أضافة حجز جديد',
+        'create_reservation' => 'تعديل بيانات الحجز',
         'client_name' => 'أسم العميل',
         'technician_name' => 'أسم الفنى',
-        'date' => 'تاريخ الطلب',
+        'date' => 'تاريخ الحجز',
         'time' => 'موعد الحجز',
         'total_price' => 'السعر الاجمالى',
         'payment_type' => 'وسيلة الدفع',

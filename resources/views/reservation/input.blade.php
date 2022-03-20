@@ -1,4 +1,11 @@
 <div class="form-group">
+    <label class="col-sm-3 col-lg-2 control-label"> @lang('messages.reservations.id')</label>
+    <div class="col-sm-9 col-lg-10 controls">
+        <input type="text" class="form-control"  value="@if ($reservation) {!! $reservation->id !!} @endif" disabled />
+    </div>
+</div> 
+
+<div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label">@lang('messages.reservations.client_name') </label>
     <div class="col-sm-9 col-lg-10 controls">
       <select class="form-control chosen-rtl" name="client_id" required {{$reservation!=null ? 'disabled' : ''}}>
@@ -12,14 +19,16 @@
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label"> @lang('messages.reservations.date') <span class="text-danger">*</span></label>
     <div class="col-sm-9 col-lg-10 controls">
-        <input type="text" class="form-control" name="date" value="@if ($reservation) {!! $reservation->date !!} @endif" />
+        <input type="text" class="form-control js-datepicker" name="date" readonly="readonly" value="@if ($reservation) {!! $reservation->date !!} @endif" />
     </div>
 </div> 
 
 <div class="form-group">
     <label class="col-sm-3 col-lg-2 control-label"> @lang('messages.reservations.time') <span class="text-danger">*</span></label>
     <div class="col-sm-9 col-lg-10 controls">
-        <input type="text" class="form-control" name="from" value="@if ($reservation) {!! $reservation->from !!} @endif" />
+        <select class="form-control chosen-rtl" name="from" required>
+            @include('partial.hours_reservation')
+        </select>
     </div>
 </div> 
 

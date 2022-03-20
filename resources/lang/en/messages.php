@@ -265,8 +265,9 @@ return [
     'Updated Successfully' => 'Updated Successfully',
 
     'reservations'=>[
+        'id' => 'Reservation Number',
         'reservations' => 'Reservations',
-        'create_reservation' => 'Add New Reservation',
+        'create_reservation' => 'Update Reservation',
         'client_name' => 'Client Name',
         'technician_name' => 'technician_name',
         'date' => 'Date',

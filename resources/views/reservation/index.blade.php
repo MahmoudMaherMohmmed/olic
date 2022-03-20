@@ -38,9 +38,9 @@
                                             <th>@lang('messages.reservations.client_name')</th>
                                             <th>@lang('messages.reservations.technician_name')</th>
                                             <th>@lang('messages.reservations.date')</th>
+                                            <th>@lang('messages.reservations.time')</th>
                                             <th>@lang('messages.reservations.total_price')</th>
                                             <th>@lang('messages.reservations.payment_type')</th>
-                                            <th>@lang('messages.reservations.created_at')</th>
                                             <th>@lang('messages.reservations.status')</th>
                                             <th>@lang('messages.action')</th>
                                         </tr>
@@ -54,9 +54,9 @@
                                                 <td> {{ $value->client->first_name . ' ' . $value->client->first_name}} </td>
                                                 <td> {{ $value->technician->name }} </td>
                                                 <td> {{ $value->date }} </td>
+                                                <td> {{ $value->from }} </td>
                                                 <td> {{ $value->total_price }} </td>
                                                 <td> {{ $value->payment_type==1 ? 'تحويل بنكى' : 'كاش' }} </td>
-                                                <td> {{$value->created_at->format('d/m/Y')}} </td>
                                                 <td>
                                                     @if($value->status==2)
                                                         تم الموافقه عليه
