@@ -55,11 +55,16 @@
                                                 <td> {{ $value->client->first_name . ' ' . $value->client->first_name}} </td>
                                                 <td> 
                                                     @php $car=$value->car @endphp
-                                                    <a class="show-tooltip" href='{{ url("client_car/$car->id") }}' title="View">
+                                                    <a class="show-tooltip" href='{{ url("client_car/$car->id") }}' title="عرض">
                                                         {{ $value->car->model!=null ? $value->car->model->brand->getTranslation('name', Session::get('applocale')) .'-'. $value->car->model->getTranslation('name', Session::get('applocale')) : '---'}} 
                                                     </a>
                                                 </td>
-                                                <td> {{ $value->technician->name }} </td>
+                                                <td> 
+                                                    @php $technician=$value->technician @endphp
+                                                    <a class="show-tooltip" href='{{ url("technician/$technician->id") }}' title="عرض">
+                                                        {{ $technician->name }} 
+                                                    </a>
+                                                </td>
                                                 <td> {{ $value->date }} </td>
                                                 <td> {{ $value->from }} </td>
                                                 <td> {{ $value->total_price }} </td>
