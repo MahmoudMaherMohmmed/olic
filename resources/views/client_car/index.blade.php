@@ -48,7 +48,7 @@
                                                 <td><input type="checkbox" name="selected_rows[]" value="{{ $value->id }}" class="roles select_all_template">
                                                 </td>
                                                 <td>{{ $value->id }}</td>
-                                                <td>{{ $value->client->name }}</td>
+                                                <td>{{ $value->client->first_name .' '. $value->client->last_name}}</td>
                                                 <td>
                                                     {{ $value->model!=null ? $value->model->brand->getTranslation('name', Session::get('applocale')) .'-'. $value->model->getTranslation('name', Session::get('applocale')) : '---'}}
                                                 </td>

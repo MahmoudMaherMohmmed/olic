@@ -265,6 +265,7 @@ return [
         'reservations' => 'الحجوزات',
         'create_reservation' => 'تعديل بيانات الحجز',
         'client_name' => 'أسم العميل',
+        'client_car' => 'سيارة العميل',
         'technician_name' => 'أسم الفنى',
         'date' => 'تاريخ الحجز',
         'time' => 'موعد الحجز',
@@ -363,6 +364,7 @@ return [
     'cars'=>[
         'cars' => 'السيارات',
         'client_cars' => 'سيارات العملاء',
+        'client_car_details' => 'تفاصيل سيارة العميل',
         'create_client_car' => 'أضافة سيارة جديده للعميل',
         'car_brands' => 'ماركات السيارات',
         'car_brand' => 'ماركة السيارة',

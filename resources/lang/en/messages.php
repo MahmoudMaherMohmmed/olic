@@ -269,6 +269,7 @@ return [
         'reservations' => 'Reservations',
         'create_reservation' => 'Update Reservation',
         'client_name' => 'Client Name',
+        'client_car' => 'Client Car',
         'technician_name' => 'technician_name',
         'date' => 'Date',
         'time' => 'Time',
@@ -364,6 +365,7 @@ return [
     'cars'=>[
         'cars' => 'Cars',
         'client_cars' => 'Client Cars',
+        'client_car_details' => 'Client Car Details',
         'create_client_car' => 'Add New Car',
         'car_brands' => 'Cars Brands',
         'car_brand' => 'Car Brand',

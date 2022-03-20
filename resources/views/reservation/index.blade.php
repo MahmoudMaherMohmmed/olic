@@ -36,6 +36,7 @@
                                             <th style="width:18px"><input type="checkbox" id="check_all" data-table="{{ $table_name }}"></th>
                                             <th>id</th>
                                             <th>@lang('messages.reservations.client_name')</th>
+                                            <th>@lang('messages.reservations.client_car')</th>
                                             <th>@lang('messages.reservations.technician_name')</th>
                                             <th>@lang('messages.reservations.date')</th>
                                             <th>@lang('messages.reservations.time')</th>
@@ -52,6 +53,12 @@
                                                 </td>
                                                 <td>{{ $value->id }}</td>
                                                 <td> {{ $value->client->first_name . ' ' . $value->client->first_name}} </td>
+                                                <td> 
+                                                    @php $car=$value->car @endphp
+                                                    <a class="show-tooltip" href='{{ url("client_car/$car->id") }}' title="View">
+                                                        {{ $value->car->model!=null ? $value->car->model->brand->getTranslation('name', Session::get('applocale')) .'-'. $value->car->model->getTranslation('name', Session::get('applocale')) : '---'}} 
+                                                    </a>
+                                                </td>
                                                 <td> {{ $value->technician->name }} </td>
                                                 <td> {{ $value->date }} </td>
                                                 <td> {{ $value->from }} </td>

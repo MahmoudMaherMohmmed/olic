@@ -3,7 +3,7 @@
     <div class="col-sm-9 col-lg-10 controls">
       <select class="form-control chosen-rtl" name="client_id" required>
         @foreach($clients as $client)
-            <option value="{{$client->id}}" {{$client_car && $client_car->client_id==$client->id ? 'selected' : '' }}>{{$client->name}}</option>
+            <option value="{{$client->id}}" {{$client_car && $client_car->client_id==$client->id ? 'selected' : '' }}>{{ $client->first_name .' '. $client->last_name}}</option>
         @endforeach
       </select>
     </div>

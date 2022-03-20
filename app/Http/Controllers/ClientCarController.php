@@ -78,7 +78,7 @@ class ClientCarController extends Controller
     public function show($id)
     {
         $client_car = ClientCar::findOrFail($id);
-        return view('client_car.index', compact('client_car'));
+        return view('client_car.show', compact('client_car'));
     }
 
     /**
@@ -93,7 +93,7 @@ class ClientCarController extends Controller
         $clients = Client::all();
         $models = CarModel::all();
         $cylinders = CarCylinder::all();
-        return view('client_car.form', compact('client_car'));
+        return view('client_car.form', compact('client_car', 'clients', 'models', 'cylinders'));
     }
 
     /**
