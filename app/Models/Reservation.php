@@ -34,6 +34,6 @@ class Reservation extends Model
 
     public function car()
     {
-        return $this->belongsTo(ClientCar::class);
+        return $this->belongsTo(ClientCar::class)->withTrashed();
     }
 }

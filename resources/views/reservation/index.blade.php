@@ -54,7 +54,7 @@
                                                 <td>{{ $value->id }}</td>
                                                 <td> {{ $value->client->first_name . ' ' . $value->client->first_name}} </td>
                                                 <td> 
-                                                    @php $car=$value->car->withTrashed() @endphp
+                                                    @php $car=$value->car @endphp
                                                     <a class="show-tooltip" href='{{ url("client_car/$car->id") }}' title="عرض">
                                                         {{ $value->car->model!=null ? $value->car->model->brand->getTranslation('name', Session::get('applocale')) .'-'. $value->car->model->getTranslation('name', Session::get('applocale')) : '---'}} 
                                                     </a>
