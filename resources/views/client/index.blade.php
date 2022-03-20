@@ -35,7 +35,7 @@
                             @foreach ($clients as $client)
                             <tr class="table-flag-blue">
                                 <th><input type="checkbox" name="selected_rows[]" class="select_all_template" value="{{ $client->id }}"></th>
-                                <td>{{ $client->name }}</td>
+                                <td>{{ $client->first_name .' '. $client->last_name}}</td>
                                 <td>{{ $client->email }}</td>
                                 <td>{{ $client->phone }}</td>
                                 <td class="visible-xs visible-sm visible-md visible-lg">
